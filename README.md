@@ -1,6 +1,10 @@
-# OrdinaAngularTestingWorkshop
+# Jworks Angular Testing Workshop
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.3.
+
+## WallabyJS
+
+We configured WallabyJS for you, if you want to know how configure WallabyJS for your angular cli project, take a look at: https://github.com/wallabyjs/ngCliWebpackSample
 
 ## Development server
 
