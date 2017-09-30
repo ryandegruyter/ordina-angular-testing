@@ -1,4 +1,9 @@
-<table class="table">
+<div *ngIf="!usersLoaded" class="columns is-centered">
+    <div class="column is-narrow">
+        <app-spinner></app-spinner>
+    </div>
+</div>
+<table *ngIf="usersLoaded" class="table">
     <thead>
         <tr>
             <th>Name</th>

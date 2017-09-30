@@ -5,20 +5,25 @@ import {JsonPlaceholderApiModule} from './json-placeholder-api/json-placeholder-
 import {devEnvironment} from './json-placeholder-api/api-environment';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { UsersComponent } from './users/users.component';
 import { AppRoutingModule } from './app-routing.module';
+import { UserModule } from './users/user.module';
+import { NavbarModule } from './navbar/navbar.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    NavbarComponent
-  ],
-  imports: [
-    BrowserModule,
-    JsonPlaceholderApiModule.forRoot(devEnvironment.baseUrl),
-    AppRoutingModule
-  ],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+    ],
+    imports: [
+        BrowserModule,
+        JsonPlaceholderApiModule.forRoot(devEnvironment.baseUrl),
+        AppRoutingModule,
+        NavbarModule,
+        UserModule,
+        SharedModule
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
 export class AppModule {
 }
