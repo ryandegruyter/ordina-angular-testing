@@ -5,6 +5,7 @@ import {JsonPlaceholderApiModule} from './json-placeholder-api/json-placeholder-
 import {devEnvironment} from './json-placeholder-api/api-environment';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { UsersComponent } from './users/users.component';
 
 @NgModule({
   declarations: [
