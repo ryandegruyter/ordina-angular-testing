@@ -6,6 +6,7 @@ import {devEnvironment} from './json-placeholder-api/api-environment';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { UsersComponent } from './users/users.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { UsersComponent } from './users/users.component';
   ],
   imports: [
     BrowserModule,
-    JsonPlaceholderApiModule.forRoot(devEnvironment.baseUrl)
+    JsonPlaceholderApiModule.forRoot(devEnvironment.baseUrl),
+    AppRoutingModule
   ],
   bootstrap: [AppComponent]
 })
