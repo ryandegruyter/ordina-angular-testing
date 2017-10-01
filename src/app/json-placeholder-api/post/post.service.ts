@@ -3,6 +3,9 @@ import {Http, Response} from '@angular/http';
 import {Post} from './post';
 import {Observable} from 'rxjs/Observable';
 import {ApiEnvironment, ApiEnvironmentToken} from '../api-environment';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
+import {of} from 'rxjs/observable/of';
 
 @Injectable()
 export class PostService {
@@ -18,7 +21,10 @@ export class PostService {
 
   getAll(): Observable<Post[]> {
     return this.http.get(`${this.postsUrl}`)
-      .map((response: Response) => response.json() || []);
+      .map((response: Response) => response.json())
+      .catch(() => {
+        return of([]);
+      });
   }
 
   getPost(id: number): Observable<Post> {
