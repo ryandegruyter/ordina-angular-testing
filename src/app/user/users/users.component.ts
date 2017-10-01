@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
-import { User } from '../shared/user.model';
 import { UserService } from '../../json-placeholder-api/user/user.service';
+import { User } from '../../json-placeholder-api/user/user';
 
 @Component({
     selector: 'app-users',
