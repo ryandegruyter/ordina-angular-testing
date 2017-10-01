@@ -1,9 +1,10 @@
 import {ModuleWithProviders, NgModule} from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
 import {UserService} from './user/user.service';
-import {ApiEnvironment, ApiEnvironmentToken, prodEnvironment} from './api-environment';
+import {ApiEnvironment} from './api-environment';
 import {HttpModule} from '@angular/http';
 import {PostService} from './post/post.service';
+import {prodEnvironment, ApiEnvironmentToken} from './environments';
 
 @NgModule({
   imports: [
@@ -12,7 +13,7 @@ import {PostService} from './post/post.service';
   ]
 })
 export class JsonPlaceholderApiModule {
-  private static readonly defaultBaseUrl: string = prodEnvironment.baseUrl;
+    private static readonly defaultBaseUrl: string = prodEnvironment.baseUrl;
 
   static forRoot(baseUrl?: string): ModuleWithProviders {
     return {

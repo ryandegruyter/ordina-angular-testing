@@ -23,13 +23,13 @@ export class UserDetailComponent implements OnInit {
     ngOnInit() {
         this.route.params.subscribe(params => {
             this.loadUser(+params['id']);
-            this.userLoaded = true;
         });
     }
 
     private loadUser(id: number): void {
         this.userService.getUser(id).subscribe((user: User) => {
             this.user = user;
+            this.userLoaded = true;
         });
     }
 
