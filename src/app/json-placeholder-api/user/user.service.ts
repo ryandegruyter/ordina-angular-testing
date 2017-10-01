@@ -11,18 +11,24 @@ import {ApiEnvironment, ApiEnvironmentToken} from '../api-environment';
 export class UserService {
 
   private static readonly PATH: string = 'users';
+  private usersUrl = '';
 
   constructor(private http: HttpClient,
               @Inject(ApiEnvironmentToken)
               private env: ApiEnvironment) {
+    this.usersUrl = `${env.baseUrl}${UserService.PATH}`;
   }
 
   getAllUsers(): Observable<User[]> {
     return this.http
-      .get<User[]>(`${this.env.baseUrl}${UserService.PATH}`)
+      .get<User[]>(this.usersUrl)
       .catch((err: any) => {
         console.log(err);
         return of([]);
       });
+  }
+
+  getUser(id: number): Observable<User> {
+    return this.http.get<User>(`${this.usersUrl}/${id}`);
   }
 }

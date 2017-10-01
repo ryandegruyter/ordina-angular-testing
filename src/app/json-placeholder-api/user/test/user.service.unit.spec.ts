@@ -36,4 +36,14 @@ describe('[Unit] User service', () => {
       });
     });
   });
+
+  describe('when GET user', () => {
+    const id = 1;
+
+    it(`should call http://jsonplaceholder.typicode.com/users/${id}`, () => {
+      (http.get as Spy).and.returnValue(of({}));
+      userService.getUser(id).subscribe();
+      expect(http.get).toHaveBeenCalledWith(prodEnvironment.baseUrl + `users/${id}`);
+    });
+  });
 });

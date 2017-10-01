@@ -12,11 +12,6 @@ export class JsonPlaceholderApiModule {
   private static readonly defaultBaseUrl: string = prodEnvironment.baseUrl;
 
   static forRoot(baseUrl?: string): ModuleWithProviders {
-    if (baseUrl) {
-      if (baseUrl.charAt(baseUrl.length - 1) !== '/') {
-        baseUrl = baseUrl + '/';
-      }
-    }
     return {
       ngModule: JsonPlaceholderApiModule,
       providers: [
