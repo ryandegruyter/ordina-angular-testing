@@ -1,12 +1,16 @@
-import {inject, TestBed} from '@angular/core/testing';
-
-const mockUserList = require('./mock-user-list.json');
+import {TestBed} from '@angular/core/testing';
 import {UserService} from '../user.service';
 import {HttpClientTestingModule, HttpTestingController, TestRequest} from '@angular/common/http/testing';
 import {User} from '../user';
 import {ApiEnvironmentToken, prodEnvironment} from '../../api-environment';
 
+const mockUserList = require('./mock-user-list.json');
+
 describe('[Integrated] UserService with HttpClientTestingModule', () => {
+
+  let service: UserService;
+  let http: HttpTestingController;
+
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [
@@ -17,23 +21,32 @@ describe('[Integrated] UserService with HttpClientTestingModule', () => {
         {provide: ApiEnvironmentToken, useValue: prodEnvironment}
       ]
     });
+    service = TestBed.get(UserService);
+    http = TestBed.get(HttpTestingController);
   });
 
-  it('should be created', inject([UserService], (service: UserService) => {
+  it('should be created', () => {
     expect(service).toBeTruthy();
-  }));
+  });
 
+  describe('when GET user by id', () => {
+    const id = 1;
+
+    it(`should call http://jsonplaceholder.typicode.com/users/${id}`, () => {
+      service.getUser(id).subscribe();
+      http.expectOne({
+        url: 'http://jsonplaceholder.typicode.com/users/' + id,
+        method: 'get'
+      });
+    });
+  });
   describe('when GET all users', () => {
 
-    let service: UserService;
-    let http: HttpTestingController;
     let actualData: User[];
 
-    beforeEach(inject([UserService, HttpTestingController], (userService: UserService, httpController: HttpTestingController) => {
-      service = userService;
-      http = httpController;
+    beforeEach(() => {
       service.getAllUsers().subscribe(data => actualData = data);
-    }));
+    });
 
     it('should call http://jsonplaceholder.typicode.com/users', () => {
       const testRequest: TestRequest = http.expectOne({
