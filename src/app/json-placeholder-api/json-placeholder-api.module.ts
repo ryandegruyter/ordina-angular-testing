@@ -5,6 +5,7 @@ import {ApiEnvironment} from './api-environment';
 import {HttpModule} from '@angular/http';
 import {PostService} from './post/post.service';
 import {prodEnvironment, ApiEnvironmentToken} from './environments';
+import { CommentService } from './comment/comment.service';
 
 @NgModule({
   imports: [
@@ -21,6 +22,7 @@ export class JsonPlaceholderApiModule {
       providers: [
         PostService,
         UserService,
+        CommentService,
         {
           provide: ApiEnvironmentToken,
           useValue: {
