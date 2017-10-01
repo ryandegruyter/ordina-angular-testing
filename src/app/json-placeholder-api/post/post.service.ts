@@ -2,10 +2,11 @@ import {Inject, Injectable} from '@angular/core';
 import {Http, Response} from '@angular/http';
 import {Post} from './post';
 import {Observable} from 'rxjs/Observable';
-import {ApiEnvironment, ApiEnvironmentToken} from '../api-environment';
+import {ApiEnvironment} from '../api-environment';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import {of} from 'rxjs/observable/of';
+import { ApiEnvironmentToken } from '../environments';
 
 @Injectable()
 export class PostService {
