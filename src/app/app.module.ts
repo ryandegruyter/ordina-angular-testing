@@ -9,10 +9,11 @@ import { UserModule } from './user/user.module';
 import { NavbarModule } from './navbar/navbar.module';
 import { SharedModule } from './shared/shared.module';
 import { devEnvironment } from './json-placeholder-api/environments';
+import { FeedModule } from './feed/feed.module';
 
 @NgModule({
     declarations: [
-        AppComponent
+        AppComponent,
     ],
     imports: [
         BrowserModule,
@@ -20,7 +21,8 @@ import { devEnvironment } from './json-placeholder-api/environments';
         AppRoutingModule,
         NavbarModule,
         UserModule,
-        SharedModule
+        SharedModule,
+        FeedModule
     ],
     providers: [],
     bootstrap: [AppComponent]

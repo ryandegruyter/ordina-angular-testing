@@ -1,0 +1,14 @@
+<div *ngIf="posts | async; let posts; else postsLoading">
+    <div class="columns is-centered" *ngFor="let post of posts">
+        <div class="column is-half">
+            <app-post [post]="post"></app-post>
+        </div>
+    </div>
+</div>
+<ng-template #postsLoading>
+    <div class="columns is-centered is-mobile">
+        <div class="column is-narrow">
+            <app-spinner></app-spinner>
+        </div>
+    </div>
+</ng-template>
