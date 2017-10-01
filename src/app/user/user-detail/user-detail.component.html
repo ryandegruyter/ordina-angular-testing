@@ -3,12 +3,7 @@
         <a routerLink="/users">Go back to Users</a>
     </div>
 </div>
-<div *ngIf="!userLoaded" class="columns is-centered">
-    <div class="column is-narrow">
-        <app-spinner></app-spinner>
-    </div>
-</div>
-<div class="columns" *ngIf="userLoaded">
+<div class="columns" *ngIf="user | async; let user; else userLoading">
     <div class="column">
         <h1><i class="fa fa-user" aria-hidden="true"></i> {{user.name}}</h1>
     </div>
@@ -22,3 +17,10 @@
         <span><i class="fa fa-phone" aria-hidden="true"></i> {{user.phone}}</span>
     </div>
 </div>
+<ng-template #userLoading>
+    <div class="columns is-centered is-mobile">
+        <div class="column is-narrow">
+            <app-spinner></app-spinner>
+        </div>
+    </div>
+</ng-template>

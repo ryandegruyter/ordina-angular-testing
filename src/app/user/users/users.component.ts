@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '../shared/user.model';
-import { UserService } from '../shared/user.service';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs/Observable';
+import { User } from '../shared/user.model';
+import { UserService } from '../../json-placeholder-api/user/user.service';
 
 @Component({
     selector: 'app-users',
@@ -10,8 +11,7 @@ import { Router } from '@angular/router';
 })
 export class UsersComponent implements OnInit {
 
-    public users: User[];
-    public usersLoaded = false;
+    public users: Observable<User[]>;
 
     constructor(
         private userService: UserService,
@@ -19,10 +19,7 @@ export class UsersComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.userService.getUsers().subscribe((users: User[]) => {
-            this.users = users;
-            this.usersLoaded = true;
-        });
+        this.users = this.userService.getAllUsers();
     }
 
     public showUserDetails(user: User): void {

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-import 'rxjs/add/operator/switchMap';
-import { UserService } from '../shared/user.service';
+import { Observable } from 'rxjs/Observable';
 import { User } from '../shared/user.model';
+import { UserService } from '../../json-placeholder-api/user/user.service';
 
 @Component({
     selector: 'app-user-detail',
@@ -11,8 +11,7 @@ import { User } from '../shared/user.model';
 })
 export class UserDetailComponent implements OnInit {
 
-    public user: User;
-    public userLoaded = false;
+    public user: Observable<User>;
 
     constructor(
         private router: Router,
@@ -27,10 +26,7 @@ export class UserDetailComponent implements OnInit {
     }
 
     private loadUser(id: number): void {
-        this.userService.getUser(id).subscribe((user: User) => {
-            this.user = user;
-            this.userLoaded = true;
-        });
+        this.user = this.userService.getUser(id);
     }
 
 }
