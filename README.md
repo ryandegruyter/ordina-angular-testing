@@ -2,9 +2,52 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.3.
 
+## JSONPlaceHolder
+
+We will be using JSONPlaceholder as our REST Api.
+Make sure to correctly configure the baseurl in `app.module.ts`
+
+### Production base URL
+By providing no arguments to the static forRoot() method it will set *http://jsonplaceholder.typicode.com/*
+as the base url.
+```
+  imports: [
+    JsonPlaceholderApiModule.forRoot(),
+  ]
+```
+
+### Custom base URL
+The static forRoot() method takes an optional string parameter where you can configure the base url.
+```
+  imports: [
+    JsonPlaceholderApiModule.forRoot('http://localhost:3000/'),
+  ]
+```
+
+## Local REST API
+
+You can choose to communicate with the live REST Api or run it locally:
+
+Clone jsonplaceholder
+```
+$ git clone https://github.com/typicode/jsonplaceholder
+```
+
+Install dependencies
+```
+$ cd jsonplaceholder
+$ npm i
+```
+
+Run mockserver (by default it will run at http://localhost:3000/)
+```
+$ npm start
+```
+
+
 ## WallabyJS
 
-We configured WallabyJS for you, if you want to know how configure WallabyJS for your angular cli project, take a look at: https://github.com/wallabyjs/ngCliWebpackSample
+We configured WallabyJS for you, if you want to know how to configure WallabyJS for your angular cli project, take a look at: https://github.com/wallabyjs/ngCliWebpackSample
 
 ## Development server
 
