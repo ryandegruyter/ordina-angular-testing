@@ -1,16 +1,19 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 
-import { AppComponent } from './app.component';
+import {AppComponent} from './app.component';
+import {JsonPlaceholderApiModule} from './json-placeholder-api/json-placeholder-api.module';
+import {devEnvironment} from './json-placeholder-api/api-environment';
 
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    JsonPlaceholderApiModule.forRoot(devEnvironment.baseUrl)
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
