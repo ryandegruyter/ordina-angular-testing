@@ -1,11 +1,12 @@
-import {Inject, Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {Observable} from 'rxjs/Observable';
-import {User} from './user';
+import { Inject, Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs/Observable';
+import { User } from './user';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
-import {of} from 'rxjs/observable/of';
-import {ApiEnvironment, ApiEnvironmentToken} from '../api-environment';
+import { of } from 'rxjs/observable/of';
+import { ApiEnvironment } from '../api-environment';
+import { ApiEnvironmentToken } from '../environments';
 
 @Injectable()
 export class UserService {
