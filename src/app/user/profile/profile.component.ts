@@ -5,11 +5,11 @@ import { UserService } from '../../json-placeholder-api/user/user.service';
 import { User } from '../../json-placeholder-api/user/user';
 
 @Component({
-    selector: 'app-user-detail',
-    templateUrl: './user-detail.component.html',
-    styleUrls: ['./user-detail.component.scss']
+    selector: 'app-uprofile',
+    templateUrl: './profile.component.html',
+    styleUrls: ['./profile.component.scss']
 })
-export class UserDetailComponent implements OnInit {
+export class ProfileComponent implements OnInit {
 
     public user: Observable<User>;
 
@@ -27,6 +27,11 @@ export class UserDetailComponent implements OnInit {
 
     private loadUser(id: number): void {
         this.user = this.userService.getUser(id);
+        setTimeout(() => {
+            this.user.subscribe(data => {
+                console.log(data);
+            });
+        }, 200);
     }
 
 }

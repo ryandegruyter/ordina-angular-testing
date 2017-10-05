@@ -5,7 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { UsersComponent } from './users/users.component';
 import { SharedModule } from '../shared/shared.module';
 import { UserRoutingModule } from './user-routing.module';
-import { UserDetailComponent } from './user-detail/user-detail.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
     imports: [
@@ -16,7 +16,7 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
     ],
     declarations: [
         UsersComponent,
-        UserDetailComponent
+        ProfileComponent
     ]
 })
 export class UserModule { }
