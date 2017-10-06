@@ -1,0 +1,30 @@
+<section class="hero is-primary">
+    <div class="hero-body">
+        <div class="container">
+            <h1 class="title">
+                NG Square
+            </h1>
+            <h2 class="subtitle">
+                An endless feed, just for you!
+            </h2>
+        </div>
+    </div>
+</section>
+<section class="section">
+    <div class="container">
+        <div *ngIf="posts | async; let posts; else postsLoading">
+            <div class="columns is-centered" *ngFor="let post of posts">
+                <div class="column is-half">
+                    <app-post [post]="post"></app-post>
+                </div>
+            </div>
+        </div>
+        <ng-template #postsLoading>
+            <div class="columns is-centered is-mobile">
+                <div class="column is-narrow">
+                    <app-spinner></app-spinner>
+                </div>
+            </div>
+        </ng-template>
+    </div>
+</section>

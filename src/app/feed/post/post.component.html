@@ -1,0 +1,16 @@
+<div class="card" *ngIf="post">
+    <header class="card-header">
+        <p class="card-header-title">
+            {{post.title}}
+        </p>
+    </header>
+    <div class="card-content">
+        <div class="content">
+            {{post.body}}
+        </div>
+        <app-comment *ngIf="showComments" [postId]="post.id"></app-comment>
+    </div>
+    <footer class="card-footer">
+        <a (click)="toggleComments()" class="card-footer-item"><i class="fa fa-comment" aria-hidden="true"></i></a>
+    </footer>
+</div>

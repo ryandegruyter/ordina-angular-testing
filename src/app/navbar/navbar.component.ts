@@ -11,9 +11,7 @@ export class NavbarComponent implements OnInit {
 
     constructor() { }
 
-    ngOnInit() {
-
-    }
+    ngOnInit() { }
 
     toggleNavmenu() {
         this.showNavmenu = !this.showNavmenu;
