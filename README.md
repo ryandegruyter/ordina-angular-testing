@@ -8,7 +8,7 @@ We will be using JSONPlaceholder as our REST Api.
 Make sure to correctly configure the baseurl in `app.module.ts`
 
 ### Production base URL
-By providing no arguments to the static forRoot() method it will set *http://jsonplaceholder.typicode.com/*
+By providing no arguments to the static forRoot() method it will set the production url
 as the base url.
 ```
   imports: [
@@ -24,25 +24,18 @@ The static forRoot() method takes an optional string parameter where you can con
   ]
 ```
 
-## Local REST API
+## Launch the JSONPlaceHolder REST Api Locally
 
-You can choose to communicate with the live REST Api or run it locally:
-
-Clone jsonplaceholder
+To Launch the REST Api locally on port 3000
 ```
-$ git clone https://github.com/typicode/jsonplaceholder
+npm run api
 ```
 
-Install dependencies
+Or start the complete dev environment (Angular app + REST Api)
 ```
-$ cd jsonplaceholder
-$ npm i
+npm start
 ```
 
-Run mockserver (by default it will run at http://localhost:3000/)
-```
-$ npm start
-```
 
 
 ## WallabyJS
