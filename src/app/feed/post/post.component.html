@@ -9,12 +9,12 @@
         <div class='content'>
             {{post.body}}
         </div>
-        <app-comment *ngIf='showComments'
-                     [comments]='comments'></app-comment>
+        <app-comment-list *ngIf='showComments'
+                     [comments]='comments | async'></app-comment-list>
     </div>
     <footer class='card-footer'>
         <a (click)='toggleComments()'
            class='card-footer-item'><i class='fa fa-comment'
-                                       aria-hidden='true'></i></a>
+                                       aria-hidden='true'></i>&nbsp;Comments</a>
     </footer>
 </div>

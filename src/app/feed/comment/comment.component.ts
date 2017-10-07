@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {Comment} from '../../json-placeholder-api/comment/comment';
 
 @Component({
@@ -6,14 +6,7 @@ import {Comment} from '../../json-placeholder-api/comment/comment';
     templateUrl: './comment.component.html',
     styleUrls: ['./comment.component.scss']
 })
-export class CommentComponent implements OnInit {
-
+export class CommentComponent {
     @Input()
-    public comments: Comment[];
-
-    constructor() {
-    }
-
-    ngOnInit() {
-    }
+    comment: Comment;
 }

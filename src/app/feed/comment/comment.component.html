@@ -1,15 +1,12 @@
-<div *ngIf="comments | async; let comments; else commentsLoading">
-    <ul>
-        <li class="comment" *ngFor="let comment of comments">
-            <h3 class="title is-6 comment-mail">{{comment.email}}</h3>
-            {{comment.name}}
-        </li>
-    </ul>
+<div class='content comment'
+     *ngIf='comment'>
+    <strong class='comment__name'>{{comment.name}}</strong>
+    <a class='comment__email'
+       href='mailto:{{comment.email}}'>
+        <span class='icon is-small'>
+            <i class='fa fa-envelope'></i>
+        </span>
+        <small>{{comment.email}}</small>
+    </a>
+    <span class='comment__body has-text-grey'>{{comment.body}}</span>
 </div>
-<ng-template #commentsLoading>
-    <div class="columns is-centered is-mobile">
-        <div class="column is-narrow">
-            <app-spinner></app-spinner>
-        </div>
-    </div>
-</ng-template>
