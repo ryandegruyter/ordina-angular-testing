@@ -1,9 +1,12 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import {DebugElement, NO_ERRORS_SCHEMA} from '@angular/core';
+import {DebugElement} from '@angular/core';
 import {By} from '@angular/platform-browser';
 import {Comment} from '../../json-placeholder-api/comment/comment';
 import {CommentListComponent} from './comment-list.component';
+import {CommentComponent} from '../comment/comment.component';
+import {SharedModule} from '../../shared/shared.module';
+import {SpinnerComponent} from '../../shared/spinner/spinner.component';
 
 describe('[Isolate] CommentListComponent', () => {
     let component: CommentListComponent;
@@ -11,8 +14,10 @@ describe('[Isolate] CommentListComponent', () => {
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            schemas: [NO_ERRORS_SCHEMA],
-            declarations: [CommentListComponent]
+            imports: [SharedModule],
+            declarations: [
+                CommentListComponent, CommentComponent
+            ]
         });
     }));
 
@@ -37,9 +42,23 @@ describe('[Isolate] CommentListComponent', () => {
             component.comments = mockList;
             fixture.detectChanges();
         });
-        it('should render a list of components', () => {
+        it('should render a list of app-comments', () => {
             const commentList: DebugElement[] = fixture.debugElement.queryAll(By.css('app-comment'));
             expect(commentList.length).toEqual(mockList.length);
+        });
+        it('should not show spinner', () => {
+            const spinner: DebugElement = fixture.debugElement.query(By.css('app-spinner'));
+            expect(spinner).toBeNull();
+        });
+    });
+    describe('when there is no list of components', () => {
+        beforeEach(() => {
+            component.comments = null;
+            fixture.detectChanges();
+        });
+        it('should show a spinner', () => {
+            const spinner: DebugElement = fixture.debugElement.query(By.directive(SpinnerComponent));
+            expect(spinner).not.toBeNull();
         });
     });
 });

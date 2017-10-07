@@ -1,8 +1,9 @@
-<div *ngIf='comments; else commentsLoading'>
+<div class='comment-list'
+     *ngIf='comments; else commentsLoading'>
     <ul>
-        <li class='comment'
-            *ngFor='let item of comments'>
-            <app-comment [comment]='item'></app-comment>
+        <li *ngFor='let item of comments'>
+            <app-comment class='comment'
+                         [comment]='item'></app-comment>
         </li>
     </ul>
 </div>
