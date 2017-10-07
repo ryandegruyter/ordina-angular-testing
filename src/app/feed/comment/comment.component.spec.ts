@@ -1,6 +1,7 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { CommentComponent } from './comment.component';
+import {CommentComponent} from './comment.component';
+import {SharedModule} from '../../shared/shared.module';
 
 describe('CommentComponent', () => {
     let component: CommentComponent;
@@ -8,9 +9,9 @@ describe('CommentComponent', () => {
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
+            imports: [SharedModule],
             declarations: [CommentComponent]
-        })
-            .compileComponents();
+        });
     }));
 
     beforeEach(() => {

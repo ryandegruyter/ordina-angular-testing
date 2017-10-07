@@ -1,7 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { CommentService } from '../../json-placeholder-api/comment/comment.service';
-import { Observable } from 'rxjs/Observable';
-import { Comment } from '../../json-placeholder-api/comment/comment';
+import {Component, Input, OnInit} from '@angular/core';
+import {Comment} from '../../json-placeholder-api/comment/comment';
 
 @Component({
     selector: 'app-comment',
@@ -11,15 +9,11 @@ import { Comment } from '../../json-placeholder-api/comment/comment';
 export class CommentComponent implements OnInit {
 
     @Input()
-    private postId: number;
-    public comments: Observable<Comment[]>;
+    public comments: Comment[];
 
-    constructor(
-        private commentService: CommentService
-    ) { }
-
-    ngOnInit() {
-        this.comments = this.commentService.getCommentsForPost(this.postId);
+    constructor() {
     }
 
+    ngOnInit() {
+    }
 }

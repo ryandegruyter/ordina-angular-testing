@@ -10,7 +10,7 @@ import {
   ResponseOptions
 } from '@angular/http';
 import {MockBackend, MockConnection} from '@angular/http/testing';
-import {ApiEnvironmentToken, prodEnvironment} from '../../api-environment';
+import {ApiEnvironmentToken, prodEnvironment} from '../../environments';
 
 const mockList = JSON.stringify(require('./mockPostList.json'));
 const mockPost = JSON.stringify(require('./mockPost.json'));
