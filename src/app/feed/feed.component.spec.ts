@@ -3,11 +3,12 @@ import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {FeedComponent} from './feed.component';
 import {PostComponent} from './post/post.component';
 import {SharedModule} from '../shared/shared.module';
-import {CommentComponent} from './comment/comment.component';
 import {PostService} from '../json-placeholder-api/post/post.service';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {HttpModule} from '@angular/http';
 import {ApiEnvironmentToken, prodEnvironment} from '../json-placeholder-api/environments';
+import {CommentComponent} from './comment/comment.component';
+import {CommentListComponent} from './comment-list/comment-list.component';
 
 describe('FeedComponent', () => {
     let component: FeedComponent;
@@ -16,7 +17,7 @@ describe('FeedComponent', () => {
     beforeEach(async(() => {
         TestBed.configureTestingModule({
             imports: [SharedModule, HttpClientTestingModule, HttpModule],
-            declarations: [FeedComponent, PostComponent, CommentComponent],
+            declarations: [FeedComponent, PostComponent, CommentListComponent, CommentComponent],
             providers: [
                 PostService,
                 {provide: ApiEnvironmentToken, useValue: prodEnvironment}
