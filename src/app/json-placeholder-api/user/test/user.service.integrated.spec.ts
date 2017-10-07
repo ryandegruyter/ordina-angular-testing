@@ -2,7 +2,7 @@ import {TestBed} from '@angular/core/testing';
 import {UserService} from '../user.service';
 import {HttpClientTestingModule, HttpTestingController, TestRequest} from '@angular/common/http/testing';
 import {User} from '../user';
-import {ApiEnvironmentToken, prodEnvironment} from '../../api-environment';
+import {ApiEnvironmentToken, prodEnvironment} from '../../environments';
 
 const mockUserList = require('./mock-user-list.json');
 

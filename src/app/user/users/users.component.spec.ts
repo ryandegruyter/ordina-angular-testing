@@ -1,6 +1,11 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { UsersComponent } from './users.component';
+import {UsersComponent} from './users.component';
+import {NO_ERRORS_SCHEMA} from '@angular/core';
+import {UserService} from '../../json-placeholder-api/user/user.service';
+import {HttpClientTestingModule} from '@angular/common/http/testing';
+import {ApiEnvironmentToken, devEnvironment} from '../../json-placeholder-api/environments';
+import {RouterTestingModule} from '@angular/router/testing';
 
 describe('UsersComponent', () => {
     let component: UsersComponent;
@@ -8,9 +13,11 @@ describe('UsersComponent', () => {
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [UsersComponent]
-        })
-            .compileComponents();
+            imports: [HttpClientTestingModule, RouterTestingModule],
+            schemas: [NO_ERRORS_SCHEMA],
+            declarations: [UsersComponent],
+            providers: [UserService, {provide: ApiEnvironmentToken, useValue: devEnvironment}]
+        });
     }));
 
     beforeEach(() => {

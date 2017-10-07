@@ -1,6 +1,13 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { FeedComponent } from './feed.component';
+import {FeedComponent} from './feed.component';
+import {PostComponent} from './post/post.component';
+import {SharedModule} from '../shared/shared.module';
+import {CommentComponent} from './comment/comment.component';
+import {PostService} from '../json-placeholder-api/post/post.service';
+import {HttpClientTestingModule} from '@angular/common/http/testing';
+import {HttpModule} from '@angular/http';
+import {ApiEnvironmentToken, prodEnvironment} from '../json-placeholder-api/environments';
 
 describe('FeedComponent', () => {
     let component: FeedComponent;
@@ -8,9 +15,13 @@ describe('FeedComponent', () => {
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [FeedComponent]
-        })
-            .compileComponents();
+            imports: [SharedModule, HttpClientTestingModule, HttpModule],
+            declarations: [FeedComponent, PostComponent, CommentComponent],
+            providers: [
+                PostService,
+                {provide: ApiEnvironmentToken, useValue: prodEnvironment}
+            ]
+        });
     }));
 
     beforeEach(() => {
