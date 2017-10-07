@@ -3,17 +3,16 @@ import {CommonModule} from '@angular/common';
 import {FeedComponent} from './feed.component';
 import {PostComponent} from './post/post.component';
 import {SharedModule} from '../shared/shared.module';
-import {CommentListComponent} from './comment-list/comment-list.component';
-import {CommentComponent} from './comment/comment.component';
+import { CommentModule } from './comment/comment.module';
 
 @NgModule({
     imports: [
         CommonModule,
-        SharedModule
+        SharedModule,
+        CommentModule
     ],
     declarations: [
-        FeedComponent, PostComponent,
-        CommentListComponent, CommentComponent,
+        FeedComponent, PostComponent
     ]
 })
 export class FeedModule {

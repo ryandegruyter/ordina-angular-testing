@@ -6,6 +6,7 @@
                          [comment]='item'></app-comment>
         </li>
     </ul>
+    <app-add-comment (onAddComment)="onAddComment($event)"></app-add-comment>
 </div>
 <ng-template #commentsLoading>
     <div class='columns is-centered is-mobile'>

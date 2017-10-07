@@ -1,0 +1,5 @@
+<form (ngSubmit)="onSubmit()" #commentForm="ngForm">
+    <input [(ngModel)]="comment.name" name="title" class="input" type="text" placeholder="Title">
+    <input [(ngModel)]="comment.body" name="body" class="input" type="text" placeholder="Write a comment">
+    <button type="submit">Send</button>
+</form>

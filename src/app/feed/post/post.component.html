@@ -1,5 +1,4 @@
-<div class='card'
-     *ngIf='post'>
+<div class='card' *ngIf='post'>
     <header class='card-header'>
         <p class='card-header-title'>
             {{post.title}}
@@ -9,12 +8,10 @@
         <div class='content'>
             {{post.body}}
         </div>
-        <app-comment-list *ngIf='showComments'
-                     [comments]='comments | async'></app-comment-list>
+        <app-comment-list *ngIf='showComments' [comments]='comments | async' (createComment)='onAddComment($event)'></app-comment-list>
     </div>
     <footer class='card-footer'>
-        <a (click)='toggleComments()'
-           class='card-footer-item'><i class='fa fa-comment'
-                                       aria-hidden='true'></i>&nbsp;Comments</a>
+        <a (click)='toggleComments()' class='card-footer-item'>
+            <i class='fa fa-comment' aria-hidden='true'></i>&nbsp;Comments</a>
     </footer>
 </div>
