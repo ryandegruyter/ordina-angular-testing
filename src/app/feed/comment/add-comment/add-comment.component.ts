@@ -13,6 +13,7 @@ export class AddCommentComponent {
 
     public onSubmit(commentForm: NgForm): void {
         this.onAddComment.emit(commentForm.value);
+        commentForm.resetForm();
     }
 
 }
