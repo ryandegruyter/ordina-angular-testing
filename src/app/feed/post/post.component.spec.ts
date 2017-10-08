@@ -5,8 +5,10 @@ import {SharedModule} from '../../shared/shared.module';
 import {CommentService} from '../../json-placeholder-api/comment/comment.service';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {ApiEnvironmentToken, prodEnvironment} from '../../json-placeholder-api/environments';
-import {CommentListComponent} from '../comment-list/comment-list.component';
-import {CommentComponent} from '../comment/comment.component';
+import {CommentListComponent} from '../comment/comment-list/comment-list.component';
+import {CommentComponent} from '../comment/comment/comment.component';
+import { AddCommentComponent } from '../comment/add-comment/add-comment.component';
+import { FormsModule } from '@angular/forms';
 
 describe('PostComponent', () => {
     let component: PostComponent;
@@ -14,8 +16,8 @@ describe('PostComponent', () => {
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            imports: [SharedModule, HttpClientTestingModule],
-            declarations: [PostComponent, CommentListComponent, CommentComponent],
+            imports: [SharedModule, HttpClientTestingModule, FormsModule],
+            declarations: [PostComponent, CommentListComponent, CommentComponent, AddCommentComponent],
             providers: [CommentService, {provide: ApiEnvironmentToken, useValue: prodEnvironment}]
         });
     }));
