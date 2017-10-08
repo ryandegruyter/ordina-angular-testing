@@ -1,0 +1,32 @@
+<form (ngSubmit)="onSubmit(commentForm)" #commentForm="ngForm" novalidate>
+    <div class="columns">
+        <div class="column">
+            <input ngModel required #title="ngModel" name="title" class="input" 
+                [ngClass]="{'is-danger': title.errors?.required && title.touched, 'is-success': title.valid}"
+                type="text" placeholder="Title">
+            <div *ngIf="title.errors?.required && title.touched" class="error-message">
+                Please write a title
+            </div>
+        </div>
+        <div class="column">
+            <input ngModel required email #email="ngModel" name="email" class="input"
+            [ngClass]="{'is-danger': (email.errors?.required || email.errors?.email) && email.touched, 'is-success': email.valid}"            
+                type="email" placeholder="Email">
+            <div *ngIf="email.touched" class="error-message">
+                <span *ngIf="email.errors?.required">Please provide an email address</span>
+                <span *ngIf="email.errors?.email && !email.errors?.required">Please provide a valid email address</span>
+            </div>
+        </div>
+    </div>
+    <div class="columns">
+        <div class="column">
+            <input ngModel required name="body" #body="ngModel"class="input"
+                [ngClass]="{'is-danger': body.errors?.required && body.touched, 'is-success': body.valid}"            
+                type="text" placeholder="Write a comment">
+            <div *ngIf="body.errors?.required && body.touched" class="error-message">
+                Please write a message
+            </div>
+        </div>
+    </div>
+    <button class="button" type="submit" [disabled]="commentForm.invalid">Send</button>
+</form>

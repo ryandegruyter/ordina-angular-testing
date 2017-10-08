@@ -1,8 +1,9 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {Post} from '../../json-placeholder-api/post/post';
-import {CommentService} from '../../json-placeholder-api/comment/comment.service';
-import {Comment} from '../../json-placeholder-api/comment/comment';
-import {Observable} from 'rxjs/Observable';
+import { Component, Input, OnInit } from '@angular/core';
+import { Post } from '../../json-placeholder-api/post/post';
+import { CommentService } from '../../json-placeholder-api/comment/comment.service';
+import { Comment } from '../../json-placeholder-api/comment/comment';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/mergeMap';
 
 @Component({
     selector: 'app-post',
@@ -27,5 +28,15 @@ export class PostComponent implements OnInit {
 
     public toggleComments(): void {
         this.showComments = !this.showComments;
+    }
+
+    public onAddComment(newComment: Comment): void {
+        newComment.postId = this.post.id;
+        this.commentService.addCommentForPost(newComment, this.post.id)
+            .mergeMap<Comment, Comment[]>(() => {
+                return this.commentService.getCommentsForPost(this.post.id);
+            }).subscribe((comments: Comment[]) => {
+                console.log(comments);
+            });
     }
 }

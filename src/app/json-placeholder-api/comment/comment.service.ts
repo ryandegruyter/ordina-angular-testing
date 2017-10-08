@@ -23,4 +23,8 @@ export class CommentService {
         return this.http.get<Comment[]>(`${this.commentsUrl}?postId=${postId}`);
     }
 
+    public addCommentForPost(comment: Comment, postId: number): Observable<Comment> {
+        return this.http.post<Comment>(`${this.commentsUrl}?postId=${postId}`, comment);
+    }
+
 }

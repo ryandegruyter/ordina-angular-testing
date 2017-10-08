@@ -1,7 +1,7 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {CommentComponent} from './comment.component';
-import {Comment} from '../../json-placeholder-api/comment/comment';
+import {Comment} from '../../../json-placeholder-api/comment/comment';
 import {DebugElement} from '@angular/core';
 import {By} from '@angular/platform-browser';
 
