@@ -1,5 +1,16 @@
 <form (ngSubmit)="onSubmit()" #commentForm="ngForm">
-    <input [(ngModel)]="comment.name" name="title" class="input" type="text" placeholder="Title">
-    <input [(ngModel)]="comment.body" name="body" class="input" type="text" placeholder="Write a comment">
-    <button type="submit">Send</button>
+    <div class="columns">
+        <div class="column">
+            <input [(ngModel)]="comment.name" name="title" class="input" type="text" placeholder="Title">
+        </div>
+        <div class="column">
+            <input [(ngModel)]="comment.email" name="email" class="input" type="text" placeholder="Email">
+        </div>
+    </div>
+    <div class="columns">
+        <div class="column">
+            <input [(ngModel)]="comment.body" name="body" class="input" type="text" placeholder="Write a comment">
+        </div>
+    </div>
+    <button class="button" type="submit">Send</button>
 </form>
