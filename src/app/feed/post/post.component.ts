@@ -32,11 +32,9 @@ export class PostComponent implements OnInit {
 
     public onAddComment(newComment: Comment): void {
         newComment.postId = this.post.id;
-        this.commentService.addCommentForPost(newComment, this.post.id)
+        this.comments = this.commentService.addCommentForPost(newComment, this.post.id)
             .mergeMap<Comment, Comment[]>(() => {
                 return this.commentService.getCommentsForPost(this.post.id);
-            }).subscribe((comments: Comment[]) => {
-                console.log(comments);
             });
     }
 }
