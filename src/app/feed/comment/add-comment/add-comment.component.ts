@@ -1,5 +1,5 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { Comment } from '../../../json-placeholder-api/comment/comment';
+import { Component, OnInit, Output, EventEmitter, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
     selector: 'app-add-comment',
@@ -11,10 +11,8 @@ export class AddCommentComponent {
     @Output()
     public onAddComment = new EventEmitter<Comment>();
 
-    public comment = new Comment();
-
-    public onSubmit(): void {
-        this.onAddComment.emit(this.comment);
+    public onSubmit(commentForm: NgForm): void {
+        this.onAddComment.emit(commentForm.value);
     }
 
 }
