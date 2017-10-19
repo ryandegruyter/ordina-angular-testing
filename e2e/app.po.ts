@@ -1,7 +1,7 @@
 import { browser, by, element, $, $$, ElementFinder, ElementArrayFinder } from 'protractor';
 import { Promise } from 'es6-promise';
 
-export class OrdinaAngularTestingWorkshopPage {
+export class AppComponent {
 
     public navBarItems: ElementArrayFinder = $$('.navbar-item');
     private navBarBurgerButton: ElementFinder = $('.button.navbar-burger');
