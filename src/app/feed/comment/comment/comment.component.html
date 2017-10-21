@@ -1,0 +1,13 @@
+<div class='content comment'
+     *ngIf='comment'>
+    <strong class='comment__name'>{{comment.name}}</strong>
+    <a class='comment__email'
+       href='mailto:{{comment.email}}'>
+        <span class='icon is-small'>
+            <i class='fa fa-envelope'></i>
+        </span>
+        <small>{{comment.email}}</small>
+    </a>
+    <span class='comment__body has-text-grey'>{{comment.body}}</span>
+    <span class='comment__action icon' id='test'><i class='fa fa-1x fa-sign-language'></i></span>
+</div>

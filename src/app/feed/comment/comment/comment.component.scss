@@ -1,0 +1,19 @@
+.comment {
+    padding-bottom: 1em;
+}
+
+.comment__email {
+    display: block;
+}
+
+.comment__action {
+    cursor: pointer;
+}
+
+.comment__action {
+    color: #23d160;
+}
+
+.comment__action:hover {
+    color: #209cee;
+}

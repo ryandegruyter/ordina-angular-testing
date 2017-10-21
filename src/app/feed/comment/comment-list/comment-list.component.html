@@ -1,0 +1,18 @@
+<div class='comment-list'
+     *ngIf='comments; else commentsLoading'>
+    <ul>
+        <li *ngFor='let item of comments'>
+            <app-comment class='comment'
+                         [comment]='item'></app-comment>
+        </li>
+    </ul>
+    <hr>
+    <app-add-comment (onAddComment)="onAddComment($event)"></app-add-comment>
+</div>
+<ng-template #commentsLoading>
+    <div class='columns is-centered is-mobile'>
+        <div class='column is-narrow'>
+            <app-spinner></app-spinner>
+        </div>
+    </div>
+</ng-template>

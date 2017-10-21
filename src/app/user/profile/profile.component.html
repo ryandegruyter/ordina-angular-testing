@@ -1,0 +1,56 @@
+<section class="section">
+    <div class="container">
+        <div class="columns">
+            <div class="column">
+                <a routerLink="/users">Go back to Users</a>
+            </div>
+        </div>
+        <div class="columns is-centered">
+            <div class="column is-half box" *ngIf="user | async; let user; else userLoading">
+                <div class="columns is-centered is-mobile">
+                    <div class="column is-narrow">
+                        <i class="fa fa-user-circle avatar" aria-hidden="true"></i>
+                    </div>
+                </div>
+                <div class="columns">
+                    <div class="column">
+                        <h1><i class="fa fa-user label-icon" aria-hidden="true"></i> {{user.name}}</h1>
+                    </div>
+                    <div class="column">
+                        <span><i class="fa fa-tag label-icon" aria-hidden="true"></i> {{user.username}}</span>
+                    </div>
+                </div>
+                <div class="columns">
+                    <div class="column">
+                        <span><i class="fa fa-envelope label-icon" aria-hidden="true"></i> {{user.email}}</span>
+                    </div>
+                    <div class="column">
+                        <span><i class="fa fa-phone label-icon" aria-hidden="true"></i> {{user.phone}}</span>
+                    </div>
+                </div>
+                <div class="columns">
+                    <div class="column">
+                        <span><i class="fa fa-globe label-icon" aria-hidden="true"></i> {{user.website}}</span>
+                    </div>
+                    <div class="column">
+                        <span><i class="fa fa-briefcase label-icon" aria-hidden="true"></i> {{user.company.name}}</span>
+                    </div>
+                </div>
+                <div class="columns">
+                    <div class="column">
+                        <span><i class="fa fa-building label-icon" aria-hidden="true"></i> {{user.address.suite}} {{user.address.street}} {{user.address.zipcode}}  {{user.address.city}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="columns is-half-box">
+                <ng-template #userLoading>
+                    <div class="columns is-centered is-mobile">
+                        <div class="column is-narrow">
+                            <app-spinner></app-spinner>
+                        </div>
+                    </div>
+                </ng-template>
+            </div>
+        </div>
+    </div>
+</section>

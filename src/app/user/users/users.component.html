@@ -1,0 +1,29 @@
+<section class="section">
+    <div class="container">
+        <table *ngIf="users | async; let users; else usersLoading" class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone number</th>
+                    <th>Company</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of users" class="user-row" (click)="showUserDetails(user)">
+                    <td>{{user.name}}</td>
+                    <td>{{user.email}}</td>
+                    <td>{{user.phone}}</td>
+                    <td>{{user.company.name}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <ng-template #usersLoading>
+            <div class="columns is-centered is-mobile">
+                <div class="column is-narrow">
+                    <app-spinner></app-spinner>
+                </div>
+            </div>
+        </ng-template>
+    </div>
+</section>
