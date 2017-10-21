@@ -2,6 +2,16 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.3.
 
+## Quickstart
+Start the complete dev environment (Angular app + REST Api)  
+```
+  npm run dev
+```
+Watch tests in second terminal
+```
+  ng test
+```
+
 ## JSONPlaceHolder
 
 We will be using JSONPlaceholder as our REST Api.
