@@ -1,0 +1,9 @@
+/**
+ * Custom styling for each presentation.
+ *
+ * Copyright (C) 2016 JWorks - http://www.ordina.be
+ */
+
+span.custom-blue {
+    color: rgb(55, 157, 248);
+}
