@@ -417,6 +417,11 @@ fdescribe('Calculator', function () {
             <section id='units'>
                 <h2>Unit tests</h2>
                 <p>Only test the unit itself without any of its dependencies</p>
+                <ul class="fragment">
+                    <li>Phase 1: Write unit test</li>
+                    <li>Phase 2: ...</li>
+                    <li>Phase 3: Profit!</li>
+                </ul>
             </section>
             <section id='doubles'>
                 <h2>Use test doubles</h2>
@@ -425,32 +430,44 @@ fdescribe('Calculator', function () {
                 <p>Spies: record info</p>
             </section>
             <section>
-                <h2>jasmine.Spy</h2>
-                <p>stub and spy</p>
-                <pre><code data-trim
-                           contenteditable>
-const mockUserService = jasmine.createSpyObj('userService', ['getUser']);
-mockUserService.getUser.and.returnValue({id: 1, name: 'Ryan'});
-getUser(1)
-expect(mockUserService.getUser).toHaveBeenCalledWith(1);
-					</code></pre>
+                <h2>Spy</h2>
+                <pre><code>
+describe('Calculator', function() {
+    const calculator;
+
+    beforeEach(() => {
+        calculator = new Calculator();
+        spyOn(calculate, 'add');
+    })
+    
+    it('should have called sum', () => {
+        calculator.add(2, 2));
+
+        expect(calculator.add).toHaveBeenCalled();
+        expect(calculator.add).toHaveBeenCalledWith(2, 2);
+    })
+})
+                </code></pre>
             </section>
             <section>
-                <h2>Spy on a particular method</h2>
-                <pre><code data-trim
-                           contenteditable>
-class User {
-    getUser(id: number): void {
-        ...
-    }
-}
-					</code></pre>
-                <pre><code data-trim
-                           contenteditable>
-const user = new User();
-spyOn(user, 'getUser');
-user.getUser.and.returnValue(...);
-					</code></pre>
+                <h2>Stub & Spy</h2>
+                <pre><code>
+describe('Calculator', function() {
+    const calculator;
+
+    beforeEach(() => {
+        calculator = jasmine.createSpyObj('calculator', ['add']);
+        calculator.add.and.returnValue(4);
+    })
+    
+    it('should have called sum', () => {
+        calculator.add(2, 2));
+
+        expect(calculator.add).toHaveBeenCalled();
+        expect(calculator.add).toHaveBeenCalledWith(2, 2);
+    })
+})
+                </code></pre>
             </section>
             <section>
                 <h2>TASK 2: Create tests with spies</h2>
