@@ -50,7 +50,8 @@
         <section>
             <h2>Dimitri de Kerf</h2>
             <p>
-                ???
+                Frontend Developer @ Rabobank<br/>
+                https://github.com/DimiDeKerf
             </p>
         </section>
         <section>
@@ -123,55 +124,284 @@
 
         <section id='tools'>
             <section>
-                <h2>Karma</h2>
-                <p>https://karma-runner.github.io/1.0/index.html</p>
-                <p>Test runner (in browser)</p>
-                <p>watch files and rerun tests</p>
-                <p>Report test results</p>
-                <p>Alternative: JEST</p>
+                <h2>Lets go testing!</h2>
+                <p>But first, some tooling...</p>
             </section>
             <section>
-                <h2>WallabyJS</h2>
-                <p>IDE Test runner</p>
-                <p>Get instant feedback</p>
-                <p>Not for free</p>
+                <h2>Test runner</h2>
+                <ul>
+                    <li>Karma</li>
+                    <li>Jest</li>
+                    <li>Wallaby.js</li>
+                </ul>
+            </section>
+            <section>
+                <img src="img/karma.svg" width="500px" />
+            </section>
+            <section>
+                <h2>Karma</h2>
+                <ul>
+                    <li>Test runner that runs your tests in a browser</li>
+                    <li>Encourages Test-Driven Development</li>
+                    <li>Developed by the Angular team</li>
+                </ul>
+            </section>
+            <section>
+                <img src="img/jest.png" width="300px" />
+            </section>
+            <section>
+                <h2>Jest</h2>
+                <ul>
+                    <li>Testing platform, mostly used with React apps</li>
+                    <li>API nearly identical with Jasmine</li>
+                    <li>Code coverage</li>
+                    <li>Smart watch mode, runs only test affected by code changes</li>
+                    <li>Reruns failed tests first</li>
+                    <li>Snapshot testing</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Snapshot testing</h2>
+                <p>Take a screenshot of the rendered UI and compare it to a reference image. Verify that a previously developed and tested Software performs correctly after change.</p>
+            </section>
+            <section>
+                <h2>IDE Integrations</h2>
+                <p>Jest integrates with Webstorm and VS code</p>
+            </section>
+            <section>
+                    <img src="img/wallaby.png" width="500px" />                    
+            </section>
+            <section>
+                <h2>Wallaby.js</h2>
+                <ul>
+                    <li>Intergrated test runner</li>
+                    <li>Runs unit tests inmediately when typing</li>
+                    <li>Displays various execution results, including code coverage and inline messages right inside editor</li>
+                    <li>Runs tests in parallel and only tests affected by code changes</li>
+                </ul>
+            </section>
+            <section>
+                <img src="img/wallaby-code.gif" width="800px" />                                        
             </section>
         </section>
 
         <section id='libs'>
             <section>
-                <h2>Testing library</h2>
-                <p>Jasmine Framework</p>
-                <p>Assertions and mocking tools</p>
-                <p>BDD syntax (WHEN ... IT SHOULD ...)</p>
+                <h2>Testing frameworks</h2>
+                <p>Combination of protocols, rules, standards and guidelines to write automated tests</p>
             </section>
             <section>
-                <h2>Describe your code</h2>
+                <h2>Testing frameworks</h2>
                 <ul>
-                    <li>describe('when the user logs in', () => {})</li>
-                    <li>beforeEach(() => {})</li>
-                    <li>it('should validate', () => {});</li>
+                    <li>Jasmine</li>
+                    <li>Mocha</li>
+                    <li>AVA</li>
                 </ul>
             </section>
             <section>
-                <h2>Assert using matchers</h2>
-                <p> expect(actual).toEqual(expected)</p>
+                <img src="img/jasmine.svg" width="500px" />                    
+            </section>
+            <section>
+                <h2>Jasmine</h2>
                 <ul>
-                    <li>toEqual(...)</li>
-                    <li>not.toEqual(...)</li>
+                    <li>Behaviour-driven development framework</li>
+                    <li>Built-in assertions allows for fluent syntax</li>
+                    <li>Built-in spy library</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Behaviour driven development</h2>
+                <p>Describe the behaviour of the app and provide a test</p>
+            </section>
+            <section>
+                <h2>Test example</h2>
+                <pre><code>
+describe('Calculator', function () {
+    let calculator: Calculator;
+
+    beforeEach(() => {
+        calculator = new Calculator();
+    })
+
+    it('should calculate the sum', () => {
+        expect(calculator.add(2, 2)).toEqual(4);
+    })
+})
+                </code></pre>
+            </section>
+            <section>
+                <h2>describe</h2>
+                <p>Suite describing the part you want to test of your app</p>
+                <pre><code>
+describe('Calculator', function() {
+
+    ...
+
+})
+                </code></pre>
+            </section>
+            <section>
+                <h2>beforeEach</h2>
+                <p>Runs a code block before each tests, ideal to initiate a class, etc...</p>
+                <pre><code>
+beforeEach(() => {
+    calculator = new Calculator();
+})
+                </code></pre>
+            </section>
+            <section>
+                <h2>afterEach</h2>
+                <p>Runs a code block after each tests, can be used to reset variables</p>
+                <pre><code>
+afterEach(() => {
+    // Reset variables to initial state
+})
+                </code></pre>
+            </section>
+            <section>
+                <h2>it</h2>
+                <p>Spec describing what the code should do, located inside the suite</p>
+                <pre><code>
+it('should calculate the sum', () => {
+
+    ...
+
+})
+                </code></pre>
+            </section>
+            <section>
+                <h2>Matcher</h2>
+                <p>Check if the result matches what we expected</p>
+                <pre><code>
+expect(calculator.add(2, 2)).toEqual(4);
+                </code></pre>
+                <p>Use <code>not</code> keyword to inverse the matcher</p>
+                <pre><code>
+expect(calculator.add(2, 2)).not.toEqual(5);
+                </code></pre>
+            </section>
+            <section>
+                <h2>More matchers</h2>
+                <ul>
+                    <li>toBeDefined()</li>
                     <li>toBeTruthy()</li>
-                    <li>toContain(...)</li>
+                    <li>toContain()</li>
+                    <li>nothing()</li>
+                    <li>...</li>
+                </ul>                
+                <p><a href="https://jasmine.github.io/api/edge/matchers.html" target="_blank">Jasmine matchers</a></p>
+            </section>
+            <section>
+                <h2>Custom matchers</h2>
+                <p>Add your own matcher to make your tests more readable</p>
+                <pre><code>
+beforeEach(() => {
+    jasmine.addMatchers({
+        toBeFour: () => {
+            return this.actual === 4;
+        }
+    });
+})
+
+it('should calculate the sum', () => {
+    expect(calculator.add(2, 2)).toBeFour();    
+})
+            </code></pre>
+            </section>
+            <section>
+                <h2>Exclude tests</h2>
+                <p>Exclude tests from the test set by using xdescribe or xit</p>
+                <pre><code>
+xdescribe('Calculator', function () {
+    let calculator: Calculator;
+
+    beforeEach(() => {
+        calculator = new Calculator();
+    })
+
+    xit('should calculate the sum', () => {
+        expect(calculator.add(2, 2)).toEqual(4);
+    })
+})                
+                </code></pre>
+            </section>
+            <section>
+                <h2>Focusing tests</h2>
+                <p>Run only the focused tests by using fdescribe or fit</p>
+                <pre><code>
+fdescribe('Calculator', function () {
+    let calculator: Calculator;
+
+    beforeEach(() => {
+        calculator = new Calculator();
+    })
+
+    fit('should calculate the sum', () => {
+        expect(calculator.add(2, 2)).toEqual(4);
+    })
+})                
+                </code></pre>                
+            </section>
+            <section>
+                <img src="img/mocha.svg" width="500px" />                
+            </section>
+            <section>
+                <h2>Mocha</h2>
+                <ul>
+                    <li>Behaviour-driven development framework</li>
+                    <li>
+                        Does not have assertion library built in
+                        <ul>
+                            <li>Chai</li>
+                            <li>expect.js</li>
+                        </ul>
+                    </li>
+                    <li>
+                        Does not have spy library built in
+                        <ul>
+                            <li>Sinon</li>
+                        </ul>
+                    </li>
                 </ul>
             </section>
             <section>
-                <h2>Exclusions / Forcing</h2>
-                <p>x (exclude), f (focus)</p>
+                <img src="img/ava.png" width="500px" />                
+            </section>
+            <section>
+                <h2>AVA</h2>
                 <ul>
-                    <li>fdescribe()</li>
-                    <li>xdescribe()</li>
-                    <li>xit()</li>
-                    <li>fit()</li>
+                    <li>Runs tests in parallel</li>
+                    <li>Smart watch mode, runs only test affected by code changes</li>
+                    <li>Reporter is less verbose on default</li>
                 </ul>
+                <img src="img/mini-reporter.gif" width="700px" />                                
+            </section>
+            <section>
+                <h2>But which one is the best?</h2>
+                <ul>
+                    <li>Depends on your preference</li>
+                    <li>Let's stick with Jasmina for now</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Test coverage</h2>
+                <p>Check amount of code covered by tests</p>
+                <ul>
+                    <li>Coverage is displayed by percentage</li>
+                    <li>Some thrive to 100% code coverage</li>
+                    <li>Not most important, write meaningful tests</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Istanbul</h2>
+                <ul>
+                    <li>Code coverage tool for JavaScript</li>
+                    <li>Generates reports which highlights covered lines of code</li>
+                </ul>
+            </section>
+            <section>
+                <img src="img/istanbul-code-coverage.png" width="700px" />                
+                <img src="img/istanbul-code-example.png" width="700px" />                                    
             </section>
             <section>
                 <h2>TASK 1: Write jasmine tests</h2>
@@ -654,6 +884,135 @@ cardList[0].triggerEventHandler('delete', null);
                     <li>Remove less interesting stuff in the beforeEach</li>
                     <li>Keep critical setup within the it</li>
                 </ul>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>E2E Testing</h2>
+                <p>Test the whole application like a user would in an automated way, where all parts of the app are working together</p>
+            </section>
+            <section>
+                <h2>How many E2E tests?</h2>
+                <ul>
+                    <li>Functionality is already tested, check if everything works together</li>
+                    <li>E2E Tests are slow</li>
+                    <li>Some tests tend to be flaky</li>
+                </ul>
+            </section>
+            <section>
+                <h2>What's needed?</h2>
+                <ul>
+                    <li>Tool to automate our tests</li>
+                    <li>A browser</li>
+                </ul>
+            </section>
+            <section>
+                <img src="img/protractor.svg" width="400px" />
+            </section>
+            <section>
+                <h2>Protractor</h2>
+                <ul>
+                    <li>E2E test framework for Angular</li>
+                    <li>Automatically waits until page is loaded</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Setup</h2>
+                <p>Install Protractor globally</p>
+                <pre><code>$ npm install -g protractor</code></pre>
+                <p>This installs two tools, Protractor and Webdriver-manager. <br /> Update the driver first</p>
+                <pre><code>$ webdriver-manager update</code></pre>
+                <p>Startup the webdriver afterwards</p>
+                <pre><code>$ webdriver-manager start</code></pre>                
+            </section>
+            <section>
+                <h2>Configuration</h2>
+                <p>Protractor needs a config file to specify where tests are located, which browser to use,...</p>
+                <pre><code>
+exports.config = {
+    framework: 'jasmine',
+    seleniumAddress: 'http://localhost:4444/wd/hub',
+    specs: ['./e2e/**/*.spec.js']
+}                
+                </code></pre>
+            </section>
+            <section>
+                <h2>Our first E2E test</h2>
+                <pre><code>
+describe('Protractor Demo', function() {
+    it('should have a title', function() {
+        browser.get('http://www.my-app.com/'); // browser is provided by Protractor
+        expect(browser.getTitle()).toEqual('My App');
+    });
+});                    
+                </code></pre>
+            </section>
+            <section>
+                <h2>Interaction with browser</h2>
+                <pre><code>
+describe('Login package', function() {
+    it('should login the user', function() {
+        browser.get('http://www.my-app.com/'); // browser is provided by Protractor
+        element(by.id('username')).sendKeys('User 1'); // element as well
+        element(by.id('password')).sendKeys('password123');
+        element(by.tagName('button')).click();
+        expect(browser.getCurrentUrl()).toEqual(browser.baseUrl + '/home');
+    });
+});                    
+                </code></pre>
+            </section>
+            <section>
+                <h2>Running E2E tests</h2>
+                <p>Start the webdriver-manager provided by Protractor and kick-off your tests to let them run in your browser</p>
+                <p class="fragment">Oh, don't forget to run your app as well!</p>
+            </section>
+            <section>
+                <h2>Best practices</h2>
+                <p>Style guide from Carmen Popoviciu defines good guidelines about E2E tests</p>
+                <a href="https://github.com/CarmenPopoviciu/protractor-styleguide">Protractor Style guide</a>
+            </section>
+            <section>
+                <h2>Page objects</h2>
+                <p>Design pattern providing elements and implementation details of the page under test</p>
+            </section>
+            <section>
+                <h2>Login page object</h2>
+                <pre><code>
+export class LoginPage {
+
+    public usernameField = element(by.id('username'));
+    public passwordField = element(by.id('password'));
+    public loginButton = element(by.tagName('button'));
+
+    public navigateTo() {
+        browser.get('http://www.my-app.com/');
+    }
+
+    public loginUser(username: string, password: string) {
+        usernameField.sendKeys('User 1'); // element as well
+        passwordField.sendKeys('pass');
+        loginButton.click();
+    }
+
+}                                       
+                </code></pre>
+            </section>
+            <section>
+                <h2>Login page test</h2>
+                <pre><code>
+describe('Login page', function() {
+    const loginPage = new LoginPage();
+
+    beforeEach(() => {
+        loginPage.navigateTo();
+    })
+
+    it('should login the user', function() {
+        loginPage.loginUser('User 1', 'password123')
+        expect(browser.getCurrentUrl()).toEqual(browser.baseUrl + '/home');        
+    });
+});                                        
+                </code></pre>
             </section>
         </section>
 
