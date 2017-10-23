@@ -155,7 +155,7 @@
                     <li>Testing platform, mostly used with React apps</li>
                     <li>API nearly identical with Jasmine</li>
                     <li>Code coverage</li>
-                    <li>Smart watch mode, runs only test affected by code changes</li>
+                    <li>Smart watch mode, runs only tests affected by code changes</li>
                     <li>Reruns failed tests first</li>
                     <li>Snapshot testing</li>
                 </ul>
@@ -310,7 +310,7 @@ it('should calculate the sum', () => {
             </section>
             <section>
                 <h2>Exclude tests</h2>
-                <p>Exclude tests from the test set by using xdescribe or xit</p>
+                <p>Exclude tests from the test set by using <code>xdescribe</code> or <code>xit</code></p>
                 <pre><code>
 xdescribe('Calculator', function () {
     let calculator: Calculator;
@@ -327,7 +327,7 @@ xdescribe('Calculator', function () {
             </section>
             <section>
                 <h2>Focusing tests</h2>
-                <p>Run only the focused tests by using fdescribe or fit</p>
+                <p>Run only the focused tests by using <code>fdescribe</code> or <code>fit</code></p>
                 <pre><code>
 fdescribe('Calculator', function () {
     let calculator: Calculator;
@@ -968,7 +968,7 @@ describe('Login package', function() {
             </section>
             <section>
                 <h2>Best practices</h2>
-                <p>Style guide from Carmen Popoviciu defines good guidelines about E2E tests</p>
+                <p>Style guide from Carmen Popoviciu has useful guidelines about E2E tests</p>
                 <a href="https://github.com/CarmenPopoviciu/protractor-styleguide">Protractor Style guide</a>
             </section>
             <section>
@@ -985,7 +985,7 @@ export class LoginPage {
     public loginButton = element(by.tagName('button'));
 
     public navigateTo() {
-        browser.get('http://www.my-app.com/');
+        browser.get('http://www.my-app.com/login');
     }
 
     public loginUser(username: string, password: string) {
