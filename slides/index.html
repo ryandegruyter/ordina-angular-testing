@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html>
+
+<head lang='en'>
+    <meta charset='UTF-8'>
+    <title>JWorks - A base template</title>
+    <link rel='stylesheet'
+          href='css/reveal.css'>
+    <link rel='stylesheet'
+          href='css/ordina.css'
+          id='theme'>
+    <link rel='stylesheet'
+          href='css/custom.css'>
+
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+
+    <script src='js/head.min.js'></script>
+    <!--Add support for earlier versions of Internet Explorer -->
+    <!--[if lt IE 9]>
+    <script src='js/html5shiv.js'></script>
+    <![endif]-->
+</head>
+
+<body>
+<div class='reveal'>
+    <div class='slides'>
+        <section>
+            <h1>Angular Testing</h1>
+            <h3>Workshop 2017</h3>
+            <img src='img/jworks-logo.png'
+                 style='vertical-align: bottom;'
+                 width='22.5%'/>
+        </section>
+
+        <section>
+            <h2>Ryan de Gruyter</h2>
+            <p>
+                Mobile Developer @ KBC<br/>
+                @ryandegruyter<br/>
+                https://github.com/ryandegruyter
+            </p>
+        </section>
+        <section>
+            <h2>Dimitri de Kerf</h2>
+            <p>
+                Frontend Developer @ Rabobank<br/>
+                https://github.com/DimiDeKerf
+            </p>
+        </section>
+        <section>
+            <h2 id='overview'>Overview</h2>
+            <p>
+            <div style='display: flex'>
+                <ul>
+                    <li>Introduction to testing</li>
+                    <li>Testing tools</li>
+                    <li>Unit testing</li>
+                    <li>Isolated testing</li>
+                    <li>Async tests</li>
+                    <li>Testing Angular Services</li>
+                    <li>Angular Injector</li>
+                </ul>
+                <ul>
+                    <li>Testing Observables</li>
+                    <li>TDD vs TAD</li>
+                    <li>Testing Angular Components</li>
+                    <li>Using Angular TestBed</li>
+                    <li>Shallow component testing</li>
+                </ul>
+                <ul>
+                    <li>Deep Component Testing</li>
+                    <li>Additional Testing Strategies</li>
+                    <li>Writing good tests</li>
+                    <li>Change Detection Strategies</li>
+                    <li>DOM Interaction Strategies</li>
+                </ul>
+            </div>
+            </p>
+        </section>
+
+        <!-- **********
+            EDIT FROM HERE
+        ********** -->
+        <section id='intro'>
+            <section>
+                <h2>Introduction to testing</h2>
+                <p>
+                    Unit testing
+                </p>
+                <p>
+                    Integration testing
+                </p>
+                <p>
+                    E2E / Functional Testing
+                </p>
+            </section>
+            <section>
+                <h2>Benefits</h2>
+                <p>
+                    Documentation for your code
+                </p>
+                <p>
+                    Less bugs
+                </p>
+                <p>
+                    Better design of your API's
+                </p>
+                <p>
+                    Safer refactoring
+                </p>
+            </section>
+            <section>
+                <h2>Sample Application</h2>
+                <p>https://github.com/ryandegruyter/angular-testing-workshop/</p>
+            </section>
+        </section>
+
+        <section id='tools'>
+            <section>
+                <h2>Lets go testing!</h2>
+                <p>But first, some tooling...</p>
+            </section>
+            <section>
+                <h2>Test runner</h2>
+                <ul>
+                    <li>Karma</li>
+                    <li>Jest</li>
+                    <li>Wallaby.js</li>
+                </ul>
+            </section>
+            <section>
+                <img src="img/karma.svg" width="500px" />
+            </section>
+            <section>
+                <h2>Karma</h2>
+                <ul>
+                    <li>Test runner that runs your tests in a browser</li>
+                    <li>Encourages Test-Driven Development</li>
+                    <li>Developed by the Angular team</li>
+                </ul>
+            </section>
+            <section>
+                <img src="img/jest.png" width="300px" />
+            </section>
+            <section>
+                <h2>Jest</h2>
+                <ul>
+                    <li>Testing platform, mostly used with React apps</li>
+                    <li>API nearly identical with Jasmine</li>
+                    <li>Code coverage</li>
+                    <li>Smart watch mode, runs only tests affected by code changes</li>
+                    <li>Reruns failed tests first</li>
+                    <li>Snapshot testing</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Snapshot testing</h2>
+                <p>Take a screenshot of the rendered UI and compare it to a reference image. Verify that a previously developed and tested Software performs correctly after change.</p>
+            </section>
+            <section>
+                <h2>IDE Integrations</h2>
+                <p>Jest integrates with Webstorm and VS code</p>
+            </section>
+            <section>
+                    <img src="img/wallaby.png" width="500px" />                    
+            </section>
+            <section>
+                <h2>Wallaby.js</h2>
+                <ul>
+                    <li>Intergrated test runner</li>
+                    <li>Runs unit tests inmediately when typing</li>
+                    <li>Displays various execution results, including code coverage and inline messages right inside editor</li>
+                    <li>Runs tests in parallel and only tests affected by code changes</li>
+                </ul>
+            </section>
+            <section>
+                <img src="img/wallaby-code.gif" width="800px" />                                        
+            </section>
+        </section>
+
+        <section id='libs'>
+            <section>
+                <h2>Testing frameworks</h2>
+                <p>Combination of protocols, rules, standards and guidelines to write automated tests</p>
+            </section>
+            <section>
+                <h2>Testing frameworks</h2>
+                <ul>
+                    <li>Jasmine</li>
+                    <li>Mocha</li>
+                    <li>AVA</li>
+                </ul>
+            </section>
+            <section>
+                <img src="img/jasmine.svg" width="500px" />                    
+            </section>
+            <section>
+                <h2>Jasmine</h2>
+                <ul>
+                    <li>Behaviour-driven development framework</li>
+                    <li>Built-in assertions allows for fluent syntax</li>
+                    <li>Built-in spy library</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Behaviour driven development</h2>
+                <p>Describe the behaviour of the app and provide a test</p>
+            </section>
+            <section>
+                <h2>Test example</h2>
+                <pre><code>
+describe('Calculator', function () {
+    let calculator: Calculator;
+
+    beforeEach(() => {
+        calculator = new Calculator();
+    })
+
+    it('should calculate the sum', () => {
+        expect(calculator.add(2, 2)).toEqual(4);
+    })
+})
+                </code></pre>
+            </section>
+            <section>
+                <h2>describe</h2>
+                <p>Suite describing the part you want to test of your app</p>
+                <pre><code>
+describe('Calculator', function() {
+
+    ...
+
+})
+                </code></pre>
+            </section>
+            <section>
+                <h2>beforeEach</h2>
+                <p>Runs a code block before each tests, ideal to initiate a class, etc...</p>
+                <pre><code>
+beforeEach(() => {
+    calculator = new Calculator();
+})
+                </code></pre>
+            </section>
+            <section>
+                <h2>afterEach</h2>
+                <p>Runs a code block after each tests, can be used to reset variables</p>
+                <pre><code>
+afterEach(() => {
+    // Reset variables to initial state
+})
+                </code></pre>
+            </section>
+            <section>
+                <h2>it</h2>
+                <p>Spec describing what the code should do, located inside the suite</p>
+                <pre><code>
+it('should calculate the sum', () => {
+
+    ...
+
+})
+                </code></pre>
+            </section>
+            <section>
+                <h2>Matcher</h2>
+                <p>Check if the result matches what we expected</p>
+                <pre><code>
+expect(calculator.add(2, 2)).toEqual(4);
+                </code></pre>
+                <p>Use <code>not</code> keyword to inverse the matcher</p>
+                <pre><code>
+expect(calculator.add(2, 2)).not.toEqual(5);
+                </code></pre>
+            </section>
+            <section>
+                <h2>More matchers</h2>
+                <ul>
+                    <li>toBeDefined()</li>
+                    <li>toBeTruthy()</li>
+                    <li>toContain()</li>
+                    <li>nothing()</li>
+                    <li>...</li>
+                </ul>                
+                <p><a href="https://jasmine.github.io/api/edge/matchers.html" target="_blank">Jasmine matchers</a></p>
+            </section>
+            <section>
+                <h2>Custom matchers</h2>
+                <p>Add your own matcher to make your tests more readable</p>
+                <pre><code>
+beforeEach(() => {
+    jasmine.addMatchers({
+        toBeFour: () => {
+            return this.actual === 4;
+        }
+    });
+})
+
+it('should calculate the sum', () => {
+    expect(calculator.add(2, 2)).toBeFour();    
+})
+            </code></pre>
+            </section>
+            <section>
+                <h2>Exclude tests</h2>
+                <p>Exclude tests from the test set by using <code>xdescribe</code> or <code>xit</code></p>
+                <pre><code>
+xdescribe('Calculator', function () {
+    let calculator: Calculator;
+
+    beforeEach(() => {
+        calculator = new Calculator();
+    })
+
+    xit('should calculate the sum', () => {
+        expect(calculator.add(2, 2)).toEqual(4);
+    })
+})                
+                </code></pre>
+            </section>
+            <section>
+                <h2>Focusing tests</h2>
+                <p>Run only the focused tests by using <code>fdescribe</code> or <code>fit</code></p>
+                <pre><code>
+fdescribe('Calculator', function () {
+    let calculator: Calculator;
+
+    beforeEach(() => {
+        calculator = new Calculator();
+    })
+
+    fit('should calculate the sum', () => {
+        expect(calculator.add(2, 2)).toEqual(4);
+    })
+})                
+                </code></pre>                
+            </section>
+            <section>
+                <img src="img/mocha.svg" width="500px" />                
+            </section>
+            <section>
+                <h2>Mocha</h2>
+                <ul>
+                    <li>Behaviour-driven development framework</li>
+                    <li>
+                        Does not have assertion library built in
+                        <ul>
+                            <li>Chai</li>
+                            <li>expect.js</li>
+                        </ul>
+                    </li>
+                    <li>
+                        Does not have spy library built in
+                        <ul>
+                            <li>Sinon</li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <img src="img/ava.png" width="500px" />                
+            </section>
+            <section>
+                <h2>AVA</h2>
+                <ul>
+                    <li>Runs tests in parallel</li>
+                    <li>Smart watch mode, runs only test affected by code changes</li>
+                    <li>Reporter is less verbose on default</li>
+                </ul>
+                <img src="img/mini-reporter.gif" width="700px" />                                
+            </section>
+            <section>
+                <h2>But which one is the best?</h2>
+                <ul>
+                    <li>Depends on your preference</li>
+                    <li>Let's stick with Jasmina for now</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Test coverage</h2>
+                <p>Check amount of code covered by tests</p>
+                <ul>
+                    <li>Coverage is displayed by percentage</li>
+                    <li>Some thrive to 100% code coverage</li>
+                    <li>Not most important, write meaningful tests</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Istanbul</h2>
+                <ul>
+                    <li>Code coverage tool for JavaScript</li>
+                    <li>Generates reports which highlights covered lines of code</li>
+                </ul>
+            </section>
+            <section>
+                <img src="img/istanbul-code-coverage.png" width="700px" />                
+                <img src="img/istanbul-code-example.png" width="700px" />                                    
+            </section>
+            <section>
+                <h2>TASK 1: Write jasmine tests</h2>
+                <p>Write 2 tests for the String.slice method</p>
+                <ul>
+                    <li>it('should substring up to the end index', () => {...})</li>
+                    <li>it('should continue to the end of the object when end is not specified', () => {...})</li>
+                </ul>
+            </section>
+        </section>
+
+        <section>
+            <section id='units'>
+                <h2>Unit tests</h2>
+                <p>Only test the unit itself without any of its dependencies</p>
+            </section>
+            <section id='doubles'>
+                <h2>Use test doubles</h2>
+                <p>Mocks: fake implementations</p>
+                <p>Stubs: provide canned answers</p>
+                <p>Spies: record info</p>
+            </section>
+            <section>
+                <h2>jasmine.Spy</h2>
+                <p>stub and spy</p>
+                <pre><code data-trim
+                           contenteditable>
+const mockUserService = jasmine.createSpyObj('userService', ['getUser']);
+mockUserService.getUser.and.returnValue({id: 1, name: 'Ryan'});
+getUser(1)
+expect(mockUserService.getUser).toHaveBeenCalledWith(1);
+					</code></pre>
+            </section>
+            <section>
+                <h2>Spy on a particular method</h2>
+                <pre><code data-trim
+                           contenteditable>
+class User {
+    getUser(id: number): void {
+        ...
+    }
+}
+					</code></pre>
+                <pre><code data-trim
+                           contenteditable>
+const user = new User();
+spyOn(user, 'getUser');
+user.getUser.and.returnValue(...);
+					</code></pre>
+            </section>
+            <section>
+                <h2>TASK 2: Create tests with spies</h2>
+                <p>Write a test for the Hero Service</p>
+                <ul>
+                    <li>Create an instance of the service</li>
+                    <li>Spy on the getHeroes method</li>
+                    <li>Let the getHeroes spy return a stub list</li>
+                    <li>Bonus: Instead of creating an instance use a jasmine.createSpyObj</li>
+                </ul>
+            </section>
+        </section>
+        <section>
+            <h2>Testing in Angular: Strategies</h2>
+            <p>Testing a class: Isolated (unit test)</p>
+            <p>Testing services: use Angular Injector or TestBed</p>
+            <p>Testing components: use TestBed
+            <ul>
+                <li>Shallow</li>
+                <li>Deep / Integrated</li>
+            </ul>
+            </p>
+        </section>
+        <section>
+            <section id='isolated'>
+                <h2>Isolated testing</h2>
+                <p>Manually instantiate (or use the Angular Injector ;-)</p>
+                <p>Mock out all dependencies</p>
+                <p>Pure unit test</p>
+            </section>
+            <section>
+                <h2>TASK 3: Write an isolated test</h2>
+                <p>Manually instantiate the class under test, but mock out any dependencies</p>
+                <p>write the following test:</p>
+                <pre><code data-trim
+                           contenteditable>
+describe('when getting a list of heroes', () => {
+    it('should make a GET request to /heroes', () => {
+                    ...
+					</code></pre>
+            </section>
+        </section>
+        <section>
+            <section id='async'>
+                <h2>Async operations in tests</h2>
+                <p>Jasmine done parameter in an <strong>it</strong> clause</p>
+                <pre><code data-trim
+                           contenteditable>
+it('should do an async operation', (done) => {
+    let value;
+    setTimeout(() => {
+        value = 5;
+        expect(value).toEqual(5);
+        done();
+    }, 2000);
+    expect(value).toBeUndefined();
+});
+					</code></pre>
+            </section>
+            <section>
+                <h2>Angular comes with async testing tools</h2>
+                <p>async()</p>
+                <p>fakeAsync() + tick()</p>
+            </section>
+            <section>
+                <h2>async()</h2>
+                <p>Test automatically completes when all async calls are done</p>
+                <pre><code data-trim
+                           contenteditable>
+it('should do an async operation', async(() => {
+    let value;
+    setTimeout(() => {
+        value = 5;
+        expect(value).toEqual(5);
+    }, 2000);
+    expect(value).toBeUndefined();
+}));
+					</code></pre>
+            </section>
+            <section>
+                <h2>fakeAsync() + tick()</h2>
+                <pre><code data-trim
+                           contenteditable>
+it('should do an async operation', async(() => {
+    let value;
+    setTimeout(() => {
+        value = 5;
+    }, 200);
+    tick(200);
+    expect(value).toEqual(5);
+}));
+					</code></pre>
+                <p>All async calls are captured
+                    in a list that can be flushed
+                    synchronously.</p>
+            </section>
+            <section>
+                <h2>TASK 4: Test async methods</h2>
+                <p>Fix the tests</p>
+                <ul>
+                    <li>the first 2 skip the assertion</li>
+                    <li>the last one fails</li>
+                </ul>
+            </section>
+        </section>
+        <!-- Example of nested vertical slides -->
+        <section>
+            <section id='services'>
+                <h2>Testing Angular Services</h2>
+                <p>Create an injector to configure dependencies</p>
+                <p>Mock out dependencies</p>
+                <p>Use mocks that come with Angular (MockBackend, MockConnection)</p>
+            </section>
+            <section>
+                <h2>Angular Injector</h2>
+                <pre><code data-trim
+                           contenteditable>
+import { ReflectiveInjector } from '@angular/core';
+
+let injector: ReflectiveInjector;
+
+beforeEach(() => {
+    injector = ReflectiveInjector.resolveAndCreate([ ...providers ]);
+}
+					</code></pre>
+            </section>
+            <section>
+                <h2>Testing an Http service</h2>
+                <pre><code data-trim
+                           contenteditable>
+beforeEach(() => {
+    injector = ReflectiveInjector.resolveAndCreate([
+        {provide: ConnectionBackend, useClass: MockBackend},
+        {provide: RequestOptions, useClass: BaseRequestOptions},
+        Http,
+        MyService
+    ]);
+}
+					</code></pre>
+                <ul>
+                    <li>Get the service</li>
+                    <li>Get the mock backend</li>
+                    <li>Make a mock response</li>
+                </ul>
+            </section>
+            <section>
+                <h2>TASK 5: Test HTTP Service</h2>
+                <p>Create a Test suite for the Post Service</p>
+                <ul>
+                    <li>Assert a Get request is made</li>
+                    <li>Assert the correct url is being called (from the environment)</li>
+                </ul>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Testing Observables</h2>
+
+                <p>Subscribe to the observable</p>
+                <p>Trigger the method under test</p>
+                <p>Check the emitted values in the subscribe block</p>
+            </section>
+            <section>
+                <h2>Mocking observables</h2>
+                <p>Use observableOf()</p>
+            </section>
+            <section>
+                <h2>TASK 6: Test Observables</h2>
+                <p>Continue with the Post Service test suite</p>
+                <ul>
+                    <li>subscribe to getPost and assert the emitted value</li>
+                    <li>do the same for getAll</li>
+                </ul>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Test Driven Development</h2>
+            </section>
+            <section>
+                <h2>TDD vs TAD</h2>
+                <p>TDD: Write tests before implementation code</p>
+                <p>TAD: Write tests after code implementation</p>
+            </section>
+            <section>
+                <h2>TDD</h2>
+                <p>Red, Green, Refactor</p>
+                <p>Don't write code unless there is a failing test first</p>
+                <p>Design your API's (client perspective)</p>
+                <p>Code that is difficult to test is a code smell</p>
+                <p>More upfront thinking</p>
+                <p>Better coverage</p>
+                <p>No extra code</p>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Testing Angular Components</h2>
+            </section>
+            <section>
+                <h2>Angular compiler</h2>
+                <p>Unit of compilation are NgModule</p>
+                <p>
+                    Specifies:
+                <ul>
+                    <li>Templates to compile (components, directives, pipes)</li>
+                    <li>Other NgModules</li>
+                    <li>Templates to export</li>
+                    <li>Providers</li>
+                    <li>Components to be bootstrapped</li>
+                </ul>
+                </p>
+            </section>
+            <section>
+                <h2>Angular Components testing strategie</h2>
+                <p>Use the Angular TestBed</p>
+                <p>Shallow or Deep?</p>
+            </section>
+            <section>
+                <h2>TestBed</h2>
+                <p>Tool for testing components</p>
+                <p>ComponentFixture</p>
+                <p>DebugElement</p>
+            </section>
+            <section>
+                <h2>Configure a testing module</h2>
+                <p>TestBed Configures a temporary testing module</p>
+                <pre><code data-trim
+                           contenteditable>
+beforeEach(() => {
+    TestBed.configureTestingModule({
+        declarations: [ HeroComponent ],
+        imports: [ ... ],
+        providers: [ ... ]
+    });
+}
+					</code></pre>
+            </section>
+            <section>
+                <h2>Creating the component</h2>
+                <p>TestBed creates the component in a componentfixture</p>
+                <p>fixture = TestBed.createComponent(component)</p>
+                <p>component = fixture.componentInstance</p>
+            </section>
+            <section>
+                <h2>fixture.detectChanges()</h2>
+                <p>calls the component lifecycle methods.</p>
+            </section>
+            <section>
+                <h2>Component fixture</h2>
+                <ul>
+                    <li>componentInstance - the instance of the component created by TestBed</li>
+                    <li>debugElement - provides insight into the component and its DOM element</li>
+                    <li>nativeElement - the native DOM element at the root of the component</li>
+                    <li>detectChanges() - trigger a change detection cycle for the component</li>
+                    <li>whenStable() - returns a promise that resolves when the fixture is stable</li>
+                </ul>
+            </section>
+            <section>
+                <h2>DebugElement</h2>
+                <p>Get information on the components DOM representation</p>
+                parent / children - the immediate parent or children of this DebugElement
+                <li>query(predicate) - search for one descendant that matches</li>
+                <li>queryAll(predicate) - search for many descendants that match</li>
+                <li>injector - this component's injector</li>
+                <li>listeners - this callback handlers for this component's events and @Outputs</li>
+                <li>triggerEventHandler(listener) - trigger an event or @Output</li>
+            </section>
+        </section>
+
+        <section>
+            <section>
+                <h2>Shallow component test</h2>
+                <p>Create a component with TestBed</p>
+                <p>But mock out or ignore other angular components </p>
+            </section>
+            <section>
+                <h2>Detecting changes</h2>
+                <ul>
+                    <li>fixture.detectChanges()</li>
+                    <li>fixture.autoDetectChanges()</li>
+                    <li>fixture.whenStable(() => {})</li>
+                </ul>
+                <p>Ignoring other elements</p>
+                <pre><code data-trim
+                           contenteditable>
+beforeEach(() => {
+    TestBed.configureTestingModule({
+        ...,
+        schemas: [NO_ERRORS_SCHEMA],
+        ...
+    });
+}
+					</code></pre>
+            </section>
+            <section>
+                <h2>Querying the DOM</h2>
+                <p>Use DebugElement</p>
+                <ul>
+                    <li>debugElement.query(By.css(selector))</li>
+                    <li>debugElement.query(By.directive(ComponentClass))</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Shallow testing a component</h2>
+                <ul>
+                    <li>Setup test module</li>
+                    <li>Create fixture</li>
+                    <li>Test component instance</li>
+                    <li>Test DOM</li>
+                </ul>
+                <p>**demo**</p>
+            </section>
+            <section id='task-shallow'>
+                <h2>TASK 7: Shallow test a component</h2>
+                <p>Write the following tests for the comment component</p>
+                <img src='./img/shallow-tests.png'
+                     alt=''>
+            </section>
+        </section>
+
+        <section>
+            <section>
+                <h2>Change detection strategies</h2>
+                <ul>
+                    <li>async() + detectChanges()</li>
+                    <li>async() + autoDetectChanges()</li>
+                    <li>fakeAsync() + tick()</li>
+                </ul>
+            </section>
+            <section>
+                <h2>DOM Interaction</h2>
+                <p>DebugElement API</p>
+                <pre><code data-trim
+                           contenteditable>
+it(`should change the hero's name (via nativeElement API)`, () => {
+    const ngModel = fixture.debugElement.query(By.directive(NgModel));
+    ngModel.triggerEventHandler('ngModelChange', 'Mr. Nice');
+    fixture.detectChanges();
+    expect(getHeadingText(fixture)).toContain('Mr. Nice');
+});
+					</code></pre>
+            </section>
+            <section>
+                <h2>TASK 8: Add test with DOM interaction</h2>
+                <p>Implement these 2 tests</p>
+                <img src='img/task8.png'
+                     alt=''>
+            </section>
+        </section>
+
+        <section>
+            <section>
+                <h2>Deep component test</h2>
+                <p>Create a component with TestBed</p>
+                <p>Test with nested components</p>
+                <ul>
+                    <li>Check that the child components are rendered correctly</li>
+                    <li>Child is receiving the correct inputs</li>
+                    <li>The parent handles output correctly</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Configure the TestBed with components and providers</h2>
+                <pre><code data-trim
+                           contenteditable>
+TestBed.configureTestingModule({
+    imports: [IonicModule]
+    declarations: [
+        CardListComponent,
+        CardComponent
+    ],
+    providers: [
+        { provide: FeedService, useValue: mockFeedService},
+        { provide: Router, useValue: mockRouter },
+    ]
+});
+					</code></pre>
+            </section>
+            <section>
+                <h2>Check nested component</h2>
+                <p>Query the child component</p>
+                <pre><code data-trim
+                           contenteditable>
+const cardList = fixture.debugElement.queryAll(By.directive(CardComponent));
+					</code></pre>
+                <p>Check @Inputs</p>
+                <pre><code data-trim
+                           contenteditable>
+expect(cardList[0].componentInstance.title).toEqual(mockList[0].title);
+					</code></pre>
+                <p>Trigger @Output bindings</p>
+                <pre><code data-trim
+                           contenteditable>
+cardList[0].triggerEventHandler('delete', null);
+					</code></pre>
+            </section>
+            <section>
+                <h2>TASK 9: Add deep component tests for component list</h2>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Tips when writing Tests</h2>
+            </section>
+            <section>
+                <h2>AAA</h2>
+                <p><strong>Arrange</strong> all necessary preconditions and inputs</p>
+                <p><strong>Act</strong> on the object or method under test</p>
+                <p><strong>Assert</strong> that the expected results have occured</p>
+            </section>
+            <section>
+                <h2>DRY</h2>
+                <p>Don't Repeat Yourself</p>
+                <p>Removes code duplication</p>
+            </section>
+            <section>
+                <h2>DAMP</h2>
+                <p>Descriptive and meaningful phrases</p>
+                <p>Promotes readability of code</p>
+            </section>
+            <section>
+                <p>Try to find a good balance between DRY & DAMP</p>
+                <p>minize logic in tests (what will test the tests?)</p>
+            </section>
+            <section>
+                <h2>Tell the story</h2>
+                <p>A test should be a complete story, all inside the it block</p>
+                <p>You shouldn't need to look around much to understand the test</p>
+                <ul>
+                    <li>Remove less interesting stuff in the beforeEach</li>
+                    <li>Keep critical setup within the it</li>
+                </ul>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>E2E Testing</h2>
+                <p>Test the whole application like a user would in an automated way, where all parts of the app are working together</p>
+            </section>
+            <section>
+                <h2>How many E2E tests?</h2>
+                <ul>
+                    <li>Functionality is already tested, check if everything works together</li>
+                    <li>E2E Tests are slow</li>
+                    <li>Some tests tend to be flaky</li>
+                </ul>
+            </section>
+            <section>
+                <h2>What's needed?</h2>
+                <ul>
+                    <li>Tool to automate our tests</li>
+                    <li>A browser</li>
+                </ul>
+            </section>
+            <section>
+                <img src="img/protractor.svg" width="400px" />
+            </section>
+            <section>
+                <h2>Protractor</h2>
+                <ul>
+                    <li>E2E test framework for Angular</li>
+                    <li>Automatically waits until page is loaded</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Setup</h2>
+                <p>Install Protractor globally</p>
+                <pre><code>$ npm install -g protractor</code></pre>
+                <p>This installs two tools, Protractor and Webdriver-manager. <br /> Update the driver first</p>
+                <pre><code>$ webdriver-manager update</code></pre>
+                <p>Startup the webdriver afterwards</p>
+                <pre><code>$ webdriver-manager start</code></pre>                
+            </section>
+            <section>
+                <h2>Configuration</h2>
+                <p>Protractor needs a config file to specify where tests are located, which browser to use,...</p>
+                <pre><code>
+exports.config = {
+    framework: 'jasmine',
+    seleniumAddress: 'http://localhost:4444/wd/hub',
+    specs: ['./e2e/**/*.spec.js']
+}                
+                </code></pre>
+            </section>
+            <section>
+                <h2>Our first E2E test</h2>
+                <pre><code>
+describe('Protractor Demo', function() {
+    it('should have a title', function() {
+        browser.get('http://www.my-app.com/'); // browser is provided by Protractor
+        expect(browser.getTitle()).toEqual('My App');
+    });
+});                    
+                </code></pre>
+            </section>
+            <section>
+                <h2>Interaction with browser</h2>
+                <pre><code>
+describe('Login package', function() {
+    it('should login the user', function() {
+        browser.get('http://www.my-app.com/'); // browser is provided by Protractor
+        element(by.id('username')).sendKeys('User 1'); // element as well
+        element(by.id('password')).sendKeys('password123');
+        element(by.tagName('button')).click();
+        expect(browser.getCurrentUrl()).toEqual(browser.baseUrl + '/home');
+    });
+});                    
+                </code></pre>
+            </section>
+            <section>
+                <h2>Running E2E tests</h2>
+                <p>Start the webdriver-manager provided by Protractor and kick-off your tests to let them run in your browser</p>
+                <p class="fragment">Oh, don't forget to run your app as well!</p>
+            </section>
+            <section>
+                <h2>Best practices</h2>
+                <p>Style guide from Carmen Popoviciu has useful guidelines about E2E tests</p>
+                <a href="https://github.com/CarmenPopoviciu/protractor-styleguide">Protractor Style guide</a>
+            </section>
+            <section>
+                <h2>Page objects</h2>
+                <p>Design pattern providing elements and implementation details of the page under test</p>
+            </section>
+            <section>
+                <h2>Login page object</h2>
+                <pre><code>
+export class LoginPage {
+
+    public usernameField = element(by.id('username'));
+    public passwordField = element(by.id('password'));
+    public loginButton = element(by.tagName('button'));
+
+    public navigateTo() {
+        browser.get('http://www.my-app.com/login');
+    }
+
+    public loginUser(username: string, password: string) {
+        usernameField.sendKeys('User 1'); // element as well
+        passwordField.sendKeys('pass');
+        loginButton.click();
+    }
+
+}                                       
+                </code></pre>
+            </section>
+            <section>
+                <h2>Login page test</h2>
+                <pre><code>
+describe('Login page', function() {
+    const loginPage = new LoginPage();
+
+    beforeEach(() => {
+        loginPage.navigateTo();
+    })
+
+    it('should login the user', function() {
+        loginPage.loginUser('User 1', 'password123')
+        expect(browser.getCurrentUrl()).toEqual(browser.baseUrl + '/home');        
+    });
+});                                        
+                </code></pre>
+            </section>
+        </section>
+
+        <!-- **********
+            DO NOT REMOVE
+        ********** -->
+        <section style='text-align: left;'>
+            <h2>Thanks for watching!</h2>
+            <p class='fragment'>Now kick some ass!</p>
+        </section>
+
+        <section style='text-align: left;'
+                 data-background='img/jworks-wallpaper-3.jpg'></section>
+    </div>
+</div>
+<script src='js/reveal.js'></script>
+<script>
+    Reveal.initialize({
+        transition: 'convex',
+        dependencies: [
+            // Cross-browser shim that fully implements classList - https://github.com/eligrey/classList.js/
+            {
+                src: 'lib/js/classList.js',
+                condition: function () {
+                    return !document.body.classList;
+                }
+            },
+            // Interpret Markdown in <section> elements
+            {
+                src: 'plugin/markdown/marked.js',
+                condition: function () {
+                    return !!document.querySelector('[data-markdown]');
+                }
+            },
+            {
+                src: 'plugin/markdown/markdown.js',
+                condition: function () {
+                    return !!document.querySelector('[data-markdown]');
+                }
+            },
+            // Syntax highlight for <code> elements
+            {
+                src: 'plugin/highlight/highlight.js',
+                async: true,
+                callback: function () {
+                    hljs.initHighlightingOnLoad();
+                }
+            },
+            // Zoom in and out with Alt+click
+            {
+                src: 'plugin/zoom-js/zoom.js',
+                async: true
+            },
+            // Speaker notes
+            {
+                src: 'plugin/notes/notes.js',
+                async: true
+            }
+        ]
+    });
+</script>
+</body>
+
+</html>
