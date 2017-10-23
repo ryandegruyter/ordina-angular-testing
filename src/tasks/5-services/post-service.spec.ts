@@ -16,14 +16,6 @@ import {ApiEnvironment} from '../../app/json-placeholder-api/api-environment';
 
 const mockBackendProvider: ClassProvider = {provide: ConnectionBackend, useClass: MockBackend};
 const requestOptionsProvider: ClassProvider = {provide: RequestOptions, useClass: BaseRequestOptions};
-const httpFactoryProvider: FactoryProvider = {
-    provide: Http,
-    useFactory: (cb: ConnectionBackend, ro: RequestOptions) => {
-        // do stuff
-        return new Http(cb, ro);
-    },
-    deps: [ConnectionBackend, RequestOptions]
-};
 const apiProvider: ValueProvider = {provide: ApiEnvironmentToken, useValue: prodEnvironment};
 
 describe('Create a test suite for the Post Service', () => {
@@ -35,7 +27,6 @@ describe('Create a test suite for the Post Service', () => {
         injector = ReflectiveInjector.resolveAndCreate([
             PostService,
             Http,
-            // httpFactoryProvider
             mockBackendProvider,
             requestOptionsProvider,
             {provide: ApiEnvironmentToken, useValue: apiProvider}
@@ -71,7 +62,7 @@ describe('Create a test suite for the Post Service', () => {
         });
 
         it('should map the response body', () => {
-            const posts: Post[] = [{body: 'alpha'}, {body: 'beta'}];
+            const posts: Post[] = [{id: 0, userId: 1, title: 'Hi!', body: 'alpha'}, {id: 1, userId: 2, title: 'Hello', body: 'beta'}];
             const stubBody: string = JSON.stringify(posts);
             const stub: Response = new Response(new ResponseOptions({body: stubBody}));
             const conn: MockConnection = mb.connectionsArray[0];

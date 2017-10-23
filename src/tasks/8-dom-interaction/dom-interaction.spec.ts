@@ -16,10 +16,12 @@ describe('Dom interaction', () => {
         comp = fixture.componentInstance;
         fixture.detectChanges();
     });
+
     it('should set default title', () => {
         expect(comp.title).toEqual('Default title');
         expect(fixture.debugElement.query(By.css('h1')).nativeElement.textContent).toEqual('Default title');
     });
+
     it('when model changes it should render a new title', () => {
         const ngModel = fixture.debugElement.query(By.directive(NgModel));
         ngModel.triggerEventHandler('ngModelChange', 'Hello world');

@@ -29,6 +29,7 @@ describe('CommentComponent', () => {
             component.comment = null;
             fixture.detectChanges();
         });
+
         it('should not render comment', () => {
             const comment: DebugElement = fixture.debugElement.query(By.css('.comment'));
             expect(comment).toBeNull();
@@ -39,24 +40,29 @@ describe('CommentComponent', () => {
         const mockComment: Comment = {
             body: 'We are all slowly dying', postId: 1, email: 'mre@ntt.be', id: 1, name: 'Death is inevitable'
         };
+
         beforeEach(() => {
             component.comment = mockComment;
             fixture.detectChanges();
         });
+
         it('should render comment', () => {
             const comment: DebugElement = fixture.debugElement.query(By.css('.comment'));
             expect(comment).not.toBeNull();
         });
+
         it('should render name', () => {
             const name: DebugElement = fixture.debugElement.query(By.css('.comment__name'));
             expect(name).not.toBeNull();
             expect(name.nativeElement.innerHTML).toContain(mockComment.name);
         });
+
         it('should render email', () => {
             const email: DebugElement = fixture.debugElement.query(By.css('.comment__email'));
             expect(email).not.toBeNull();
             expect(email.nativeElement.innerHTML).toContain(mockComment.email);
         });
+
         it('should render body', () => {
             const email: DebugElement = fixture.debugElement.query(By.css('.comment__body'));
             expect(email).not.toBeNull();

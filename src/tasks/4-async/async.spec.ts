@@ -17,7 +17,6 @@ describe('Testing async operations', () => {
 
     describe('async', () => {
         it('should assert', async(() => {
-
             let value = 0;
 
             setTimeout(() => {
@@ -31,7 +30,6 @@ describe('Testing async operations', () => {
 
     describe('fakeAsync', () => {
         it('should assert using fakeAsync', fakeAsync(() => {
-
             let value = 0;
 
             setTimeout(() => {

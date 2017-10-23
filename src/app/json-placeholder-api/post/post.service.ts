@@ -11,7 +11,7 @@ import { ApiEnvironmentToken } from '../environments';
 @Injectable()
 export class PostService {
 
-  private static readonly PATH: string = 'posts';
+  public static readonly PATH: string = 'posts';
   private postsUrl = '';
 
   constructor(private http: Http,

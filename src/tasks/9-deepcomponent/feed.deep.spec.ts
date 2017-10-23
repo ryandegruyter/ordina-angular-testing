@@ -65,12 +65,14 @@ describe('Deep component test: Post component', () => {
                 footerLink.triggerEventHandler('click', null);
                 fixture.detectChanges();
             });
+
             it('should render component list', () => {
                 const commentList: DebugElement = fixture.debugElement.query(By.directive(CommentListComponent));
                 const commentListCompo: CommentListComponent = commentList.componentInstance;
                 expect(commentList).not.toBeNull();
                 expect(commentListCompo.comments).toEqual(commentListStub);
             });
+
             it('should add comment', () => {
                 const commentList: DebugElement = fixture.debugElement.query(By.directive(CommentListComponent));
                 const commentListCompo: CommentListComponent = commentList.componentInstance;
