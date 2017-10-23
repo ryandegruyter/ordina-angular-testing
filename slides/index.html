@@ -118,7 +118,7 @@
             </section>
             <section>
                 <h2>Sample Application</h2>
-                <p>https://github.com/ryandegruyter/angular-testing-workshop/</p>
+                <p>https://github.com/ryandegruyter/ordina-angular-testing/</p>
             </section>
         </section>
 
@@ -169,7 +169,7 @@
                 <p>Jest integrates with Webstorm and VS code</p>
             </section>
             <section>
-                    <img src="img/wallaby.png" width="500px" />                    
+                    <img src="img/wallaby.png" width="500px" />
             </section>
             <section>
                 <h2>Wallaby.js</h2>
@@ -181,7 +181,7 @@
                 </ul>
             </section>
             <section>
-                <img src="img/wallaby-code.gif" width="800px" />                                        
+                <img src="img/wallaby-code.gif" width="800px" />
             </section>
         </section>
 
@@ -199,7 +199,7 @@
                 </ul>
             </section>
             <section>
-                <img src="img/jasmine.svg" width="500px" />                    
+                <img src="img/jasmine.svg" width="500px" />
             </section>
             <section>
                 <h2>Jasmine</h2>
@@ -288,7 +288,7 @@ expect(calculator.add(2, 2)).not.toEqual(5);
                     <li>toContain()</li>
                     <li>nothing()</li>
                     <li>...</li>
-                </ul>                
+                </ul>
                 <p><a href="https://jasmine.github.io/api/edge/matchers.html" target="_blank">Jasmine matchers</a></p>
             </section>
             <section>
@@ -304,7 +304,7 @@ beforeEach(() => {
 })
 
 it('should calculate the sum', () => {
-    expect(calculator.add(2, 2)).toBeFour();    
+    expect(calculator.add(2, 2)).toBeFour();
 })
             </code></pre>
             </section>
@@ -322,7 +322,7 @@ xdescribe('Calculator', function () {
     xit('should calculate the sum', () => {
         expect(calculator.add(2, 2)).toEqual(4);
     })
-})                
+})
                 </code></pre>
             </section>
             <section>
@@ -339,11 +339,11 @@ fdescribe('Calculator', function () {
     fit('should calculate the sum', () => {
         expect(calculator.add(2, 2)).toEqual(4);
     })
-})                
-                </code></pre>                
+})
+                </code></pre>
             </section>
             <section>
-                <img src="img/mocha.svg" width="500px" />                
+                <img src="img/mocha.svg" width="500px" />
             </section>
             <section>
                 <h2>Mocha</h2>
@@ -365,7 +365,7 @@ fdescribe('Calculator', function () {
                 </ul>
             </section>
             <section>
-                <img src="img/ava.png" width="500px" />                
+                <img src="img/ava.png" width="500px" />
             </section>
             <section>
                 <h2>AVA</h2>
@@ -374,7 +374,7 @@ fdescribe('Calculator', function () {
                     <li>Smart watch mode, runs only test affected by code changes</li>
                     <li>Reporter is less verbose on default</li>
                 </ul>
-                <img src="img/mini-reporter.gif" width="700px" />                                
+                <img src="img/mini-reporter.gif" width="700px" />
             </section>
             <section>
                 <h2>But which one is the best?</h2>
@@ -400,8 +400,8 @@ fdescribe('Calculator', function () {
                 </ul>
             </section>
             <section>
-                <img src="img/istanbul-code-coverage.png" width="700px" />                
-                <img src="img/istanbul-code-example.png" width="700px" />                                    
+                <img src="img/istanbul-code-coverage.png" width="700px" />
+                <img src="img/istanbul-code-example.png" width="700px" />
             </section>
             <section>
                 <h2>TASK 1: Write jasmine tests</h2>
@@ -923,7 +923,7 @@ cardList[0].triggerEventHandler('delete', null);
                 <p>This installs two tools, Protractor and Webdriver-manager. <br /> Update the driver first</p>
                 <pre><code>$ webdriver-manager update</code></pre>
                 <p>Startup the webdriver afterwards</p>
-                <pre><code>$ webdriver-manager start</code></pre>                
+                <pre><code>$ webdriver-manager start</code></pre>
             </section>
             <section>
                 <h2>Configuration</h2>
@@ -933,7 +933,7 @@ exports.config = {
     framework: 'jasmine',
     seleniumAddress: 'http://localhost:4444/wd/hub',
     specs: ['./e2e/**/*.spec.js']
-}                
+}
                 </code></pre>
             </section>
             <section>
@@ -944,7 +944,7 @@ describe('Protractor Demo', function() {
         browser.get('http://www.my-app.com/'); // browser is provided by Protractor
         expect(browser.getTitle()).toEqual('My App');
     });
-});                    
+});
                 </code></pre>
             </section>
             <section>
@@ -958,7 +958,7 @@ describe('Login package', function() {
         element(by.tagName('button')).click();
         expect(browser.getCurrentUrl()).toEqual(browser.baseUrl + '/home');
     });
-});                    
+});
                 </code></pre>
             </section>
             <section>
@@ -994,7 +994,7 @@ export class LoginPage {
         loginButton.click();
     }
 
-}                                       
+}
                 </code></pre>
             </section>
             <section>
@@ -1009,9 +1009,9 @@ describe('Login page', function() {
 
     it('should login the user', function() {
         loginPage.loginUser('User 1', 'password123')
-        expect(browser.getCurrentUrl()).toEqual(browser.baseUrl + '/home');        
+        expect(browser.getCurrentUrl()).toEqual(browser.baseUrl + '/home');
     });
-});                                        
+});
                 </code></pre>
             </section>
         </section>
