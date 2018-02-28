@@ -136,7 +136,7 @@
                 </ul>
             </section>
             <section>
-                <img src="img/karma.svg" width="500px" />
+                <img src="img/karma.svg" width="500px"/>
             </section>
             <section>
                 <h2>Karma</h2>
@@ -147,7 +147,7 @@
                 </ul>
             </section>
             <section>
-                <img src="img/jest.png" width="300px" />
+                <img src="img/jest.png" width="300px"/>
             </section>
             <section>
                 <h2>Jest</h2>
@@ -162,26 +162,29 @@
             </section>
             <section>
                 <h2>Snapshot testing</h2>
-                <p>Take a screenshot of the rendered UI and compare it to a reference image. Verify that a previously developed and tested Software performs correctly after change.</p>
+                <p>Take a screenshot of the rendered UI and compare it to a reference image. Verify that a previously
+                    developed and tested Software performs correctly after change.</p>
             </section>
             <section>
                 <h2>IDE Integrations</h2>
                 <p>Jest integrates with Webstorm and VS code</p>
             </section>
             <section>
-                    <img src="img/wallaby.png" width="500px" />
+                <img src="img/wallaby.png" width="500px"/>
             </section>
             <section>
                 <h2>Wallaby.js</h2>
                 <ul>
                     <li>Intergrated test runner</li>
                     <li>Runs unit tests inmediately when typing</li>
-                    <li>Displays various execution results, including code coverage and inline messages right inside editor</li>
+                    <li>Displays various execution results, including code coverage and inline messages right inside
+                        editor
+                    </li>
                     <li>Runs tests in parallel and only tests affected by code changes</li>
                 </ul>
             </section>
             <section>
-                <img src="img/wallaby-code.gif" width="800px" />
+                <img src="img/wallaby-code.gif" width="800px"/>
             </section>
         </section>
 
@@ -199,7 +202,7 @@
                 </ul>
             </section>
             <section>
-                <img src="img/jasmine.svg" width="500px" />
+                <img src="img/jasmine.svg" width="500px"/>
             </section>
             <section>
                 <h2>Jasmine</h2>
@@ -343,7 +346,7 @@ fdescribe('Calculator', function () {
                 </code></pre>
             </section>
             <section>
-                <img src="img/mocha.svg" width="500px" />
+                <img src="img/mocha.svg" width="500px"/>
             </section>
             <section>
                 <h2>Mocha</h2>
@@ -365,7 +368,7 @@ fdescribe('Calculator', function () {
                 </ul>
             </section>
             <section>
-                <img src="img/ava.png" width="500px" />
+                <img src="img/ava.png" width="500px"/>
             </section>
             <section>
                 <h2>AVA</h2>
@@ -374,7 +377,7 @@ fdescribe('Calculator', function () {
                     <li>Smart watch mode, runs only test affected by code changes</li>
                     <li>Reporter is less verbose on default</li>
                 </ul>
-                <img src="img/mini-reporter.gif" width="700px" />
+                <img src="img/mini-reporter.gif" width="700px"/>
             </section>
             <section>
                 <h2>But which one is the best?</h2>
@@ -400,8 +403,8 @@ fdescribe('Calculator', function () {
                 </ul>
             </section>
             <section>
-                <img src="img/istanbul-code-coverage.png" width="700px" />
-                <img src="img/istanbul-code-example.png" width="700px" />
+                <img src="img/istanbul-code-coverage.png" width="700px"/>
+                <img src="img/istanbul-code-example.png" width="700px"/>
             </section>
             <section>
                 <h2>TASK 1: Write jasmine tests</h2>
@@ -439,7 +442,7 @@ describe('Calculator', function() {
         calculator = new Calculator();
         spyOn(calculate, 'add');
     })
-    
+
     it('should have called sum', () => {
         calculator.add(2, 2));
 
@@ -459,7 +462,7 @@ describe('Calculator', function() {
         calculator = jasmine.createSpyObj('calculator', ['add']);
         calculator.add.and.returnValue(4);
     })
-    
+
     it('should have called sum', () => {
         calculator.add(2, 2));
 
@@ -664,7 +667,7 @@ beforeEach(() => {
             </section>
         </section>
         <section>
-            <section>
+            <section id="recap">
                 <h2>
                     Recap
                 </h2>
@@ -705,6 +708,15 @@ beforeEach(() => {
                 <h2>Testing services</h2>
                 <p>Use ReflectiveInjector to configure and mock dependencies</p>
             </section>
+            <section>
+                <h2>Test Driven Development</h2>
+            </section>
+            <section>
+                <h2>TDD vs TAD</h2>
+                <p>Red, Green, Refactor</p>
+                <p>TDD: Write tests before implementation code</p>
+                <p>TAD: Write tests after code implementation</p>
+            </section>
         </section>
         <section>
             <section>
@@ -712,26 +724,29 @@ beforeEach(() => {
             </section>
             <section>
                 <h2>Angular compiler</h2>
-                <p>Unit of compilation are NgModule</p>
-                <p>
-                    Specifies:
+                <p>NgModules: Compilation context for components</p>
+                <p>Specifies:</p>
                 <ul>
-                    <li>Templates to compile (components, directives, pipes)</li>
+                    <li>Components to compile (components, directives, pipes)</li>
                     <li>Other NgModules</li>
-                    <li>Templates to export</li>
+                    <li>Directives / pipes to export</li>
                     <li>Providers</li>
+                    <li>entryComponents</li>
                     <li>Components to be bootstrapped</li>
                 </ul>
-                </p>
             </section>
             <section>
-                <h2>Angular Components testing strategie</h2>
+                <h2>Angular Component Testing Strategy</h2>
                 <p>Use the Angular TestBed</p>
-                <p>Shallow or Deep?</p>
+                <p>Shallow test or Deep test</p>
             </section>
             <section>
-                <h2>TestBed</h2>
-                <p>Tool for testing components</p>
+                <h2>Primary test tools</h2>
+                <pre><code data-trim
+                           contenteditable>
+import {ComponentFixture, DebugElement, TestBed} from "@angular/core/testing";
+					</code></pre>
+                <p>TestBed</p>
                 <p>ComponentFixture</p>
                 <p>DebugElement</p>
             </section>
@@ -751,7 +766,7 @@ beforeEach(() => {
             </section>
             <section>
                 <h2>Creating the component</h2>
-                <p>TestBed creates the component in a componentfixture</p>
+                <p>TestBed creates the component in a ComponentFixture</p>
                 <p>fixture = TestBed.createComponent(component)</p>
                 <p>component = fixture.componentInstance</p>
             </section>
@@ -773,11 +788,13 @@ beforeEach(() => {
                 <h2>DebugElement</h2>
                 <p>Get information on the components DOM representation</p>
                 parent / children - the immediate parent or children of this DebugElement
-                <li>query(predicate) - search for one descendant that matches</li>
-                <li>queryAll(predicate) - search for many descendants that match</li>
-                <li>injector - this component's injector</li>
-                <li>listeners - this callback handlers for this component's events and @Outputs</li>
-                <li>triggerEventHandler(listener) - trigger an event or @Output</li>
+                <ul>
+                    <li>query(predicate) - search for one descendant that matches</li>
+                    <li>queryAll(predicate) - search for many descendants that match</li>
+                    <li>injector - this component's injector</li>
+                    <li>listeners - this callback handlers for this component's events and @Outputs</li>
+                    <li>triggerEventHandler(listener) - trigger an event or @Output</li>
+                </ul>
             </section>
         </section>
 
@@ -921,11 +938,32 @@ cardList[0].triggerEventHandler('delete', null);
                 <p><strong>Arrange</strong> all necessary preconditions and inputs</p>
                 <p><strong>Act</strong> on the object or method under test</p>
                 <p><strong>Assert</strong> that the expected results have occured</p>
+                <pre><code data-trim
+                           contenteditable>
+it('should add numbers', () => {
+    // Arrange
+    const expected: number = 2;
+    let actual: number = 0;
+    let serviceUnderTest: MathService = new MathService();
+
+    // Act
+    actual = serviceUnderTest.add(1,1);
+
+    // Assert
+    expect(actual).toEqual(expected);
+});
+					</code></pre>
             </section>
             <section>
                 <h2>DRY</h2>
                 <p>Don't Repeat Yourself</p>
-                <p>Removes code duplication</p>
+                <p>Remove code duplication</p>
+                <pre><code data-trim
+                           contenteditable>
+beforeEach(() => {
+    ...
+});
+					</code></pre>
             </section>
             <section>
                 <h2>DAMP</h2>
@@ -949,7 +987,8 @@ cardList[0].triggerEventHandler('delete', null);
         <section>
             <section>
                 <h2>E2E Testing</h2>
-                <p>Test the whole application like a user would in an automated way, where all parts of the app are working together</p>
+                <p>Test the whole application like a user would in an automated way, where all parts of the app are
+                    working together</p>
             </section>
             <section>
                 <h2>How many E2E tests?</h2>
@@ -967,7 +1006,7 @@ cardList[0].triggerEventHandler('delete', null);
                 </ul>
             </section>
             <section>
-                <img src="img/protractor.svg" width="400px" />
+                <img src="img/protractor.svg" width="400px"/>
             </section>
             <section>
                 <h2>Protractor</h2>
@@ -980,7 +1019,7 @@ cardList[0].triggerEventHandler('delete', null);
                 <h2>Setup</h2>
                 <p>Install Protractor globally</p>
                 <pre><code>$ npm install -g protractor</code></pre>
-                <p>This installs two tools, Protractor and Webdriver-manager. <br /> Update the driver first</p>
+                <p>This installs two tools, Protractor and Webdriver-manager. <br/> Update the driver first</p>
                 <pre><code>$ webdriver-manager update</code></pre>
                 <p>Startup the webdriver afterwards</p>
                 <pre><code>$ webdriver-manager start</code></pre>
@@ -1023,7 +1062,8 @@ describe('Login package', function() {
             </section>
             <section>
                 <h2>Running E2E tests</h2>
-                <p>Start the webdriver-manager provided by Protractor and kick-off your tests to let them run in your browser</p>
+                <p>Start the webdriver-manager provided by Protractor and kick-off your tests to let them run in your
+                    browser</p>
                 <p class="fragment">Oh, don't forget to run your app as well!</p>
             </section>
             <section>
